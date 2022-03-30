@@ -123,74 +123,26 @@
 			{
 				"title": "Better Outcomes for Canadians",
 				"category": "portfolio",
-				"image": "01.jpg",
-				"url": "https://www.betteroutcomes.ca"
+				"image": "01.png",
+				"url": "http://betteroutcomes.ca/"
 			},
 			{
-				"title": "Fury Fighting Gear",
-				"category": "(offline now) A fighting gear company I started",
-				"image": "02.jpg",
-				"url": "http://www.timbakerdev.com"
+				"title": "One Page Resume Website",
+				"category": "portfolio",
+				"image": "02.png",
+				"url": "https://www.rizacansolak.com"
 			},
 			{
-				"title": "Original Thai Food",
-				"category": "Website I built for a restaurant I like in Thailand",
-				"image": "03.jpg",
-				"url": "http://www.timbakerdev.com/originalthaifood.github.io"
+				"title": "Survey Creation and Analytics Website",
+				"category": "portfolio",
+				"image": "03.png",
+				"url": "https://comp229-project-group-2.herokuapp.com/"
 			},
 			{
-				"title": "Resume Website",
-				"category": "A React based resume website template",
-				"image": "04.jpg",
-				"url": "http://www.timbakerdev.com"
-			},
-			{
-				"title": "Smirkspace",
-				"category": "(MVP Only) A React and Meteor based chat University project.",
-				"image": "05.jpg",
-				"url": "http://www.smirkspace.com"
-			},
-			{
-				"title": "Canadian Wanderlust",
-				"category": "My Travel Blog for my post-university travels",
-				"image": "06.jpg",
-				"url": "https://www.canadianwanderlust.com"
-			},
-			{
-				"title": "Fury Fighting Gear",
-				"category": "(offline now) A fighting gear company I started",
-				"image": "01.jpg",
-				"url": "http://www.timbakerdev.com"
-			},
-			{
-				"title": "Original Thai Food",
-				"category": "Website I built for a restaurant I like in Thailand",
-				"image": "02.jpg",
-				"url": "http://www.timbakerdev.com/originalthaifood.github.io"
-			},
-			{
-				"title": "Original Thai Food",
-				"category": "Website I built for a restaurant I like in Thailand",
-				"image": "03.jpg",
-				"url": "http://www.timbakerdev.com/originalthaifood.github.io"
-			},
-			{
-				"title": "Resume Website",
-				"category": "A React based resume website template",
-				"image": "04.jpg",
-				"url": "http://www.timbakerdev.com"
-			},
-			{
-				"title": "Smirkspace",
-				"category": "(MVP Only) A React and Meteor based chat University project.",
-				"image": "05.jpg",
-				"url": "http://www.smirkspace.com"
-			},
-			{
-				"title": "Canadian Wanderlust",
-				"category": "My Travel Blog for my post-university travels",
-				"image": "06.jpg",
-				"url": "https://www.canadianwanderlust.com"
+				"title": "Zero Apnea",
+				"category": "portfolio",
+				"image": "05.png",
+				"url": "https://zeroapnea.org/"
 			}
 		]
 	}
