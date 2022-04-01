@@ -3,7 +3,7 @@
 		"name": "Ugur (Ian) Pekunsal",
 		"description": "I am a recent software engineering graduate. Actively looking for a new job opportunity",
 		"image": "profilepic.jpg",
-		"bio": "Use this bio section as your way of describing yourself and saying what you do, what technologies you like to use or feel most comfortable with, describing your personality, or whatever else you feel like throwing in.",
+		"bio": "I enjoy working with other people and meeting new challenges every day. Through my degree, and my previous work experiences, I gained valuable skills in the fields of Microsoft Office, technology (C#, Javascript, Typescript, Java, Python) problem- solving, and communication (Customer Service). These qualities are the basis of which have helped me to develop myself into the worker that I am today.",
 		"contactmessage": "If you have any additional questions, please contact me!",
 		"email": "ian@pknsl.com",
 		"phone": "647-803-4102",
@@ -46,7 +46,7 @@
 		]
 	},
 	"resume": {
-		"skillmessage": "Below are a short list of my current skills. I am growing this list continuously.",
+		"skillmessage": "Below is a list of my current skills. This list is an indication of how fast I am with solving problems utilizing these technologies.",
 		"education": [
 			{
 				"school": "Centennial College",
