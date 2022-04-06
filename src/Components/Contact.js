@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Fade, Slide } from "react-reveal";
+import emailjs from "@emailjs/browser";
 
 class Contact extends Component {
 	render() {
@@ -13,8 +14,30 @@ class Contact extends Component {
 		const phone = this.props.data.phone;
 		const message = this.props.data.contactmessage;
 
+		emailjs.sendForm(
+			"service_kdwca9e",
+			"pknsl_contact_template",
+			"contactForm",
+			"DpJBMKFfjD_NLX6WD"
+		);
+
+		// emailjs
+		// 	.sendForm("service_kdwca9e", "pknsl_contact_template", "#myForm")
+		// 	.then(
+		// 		function (response) {
+		// 			console.log("SUCCESS!", response.status, response.text);
+		// 		},
+		// 		function (error) {
+		// 			console.log("FAILED...", error);
+		// 		}
+		// 	);
+
 		return (
 			<section id="contact">
+				<script
+					type="text/javascript"
+					src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+				></script>
 				<Fade bottom duration={1000}>
 					<div className="row section-head">
 						<div className="two columns header-col">
