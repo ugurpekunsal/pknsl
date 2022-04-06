@@ -3,6 +3,11 @@ import { Fade, Slide } from "react-reveal";
 import emailjs from "@emailjs/browser";
 
 class Contact extends Component {
+	constructor(props) {
+		super(props);
+		this.formRef = React.createRef();
+	}
+
 	render() {
 		if (!this.props.data) return null;
 
@@ -14,12 +19,34 @@ class Contact extends Component {
 		const phone = this.props.data.phone;
 		const message = this.props.data.contactmessage;
 
-		emailjs.sendForm(
-			"service_kdwca9e",
-			"pknsl_contact_template",
-			"contactForm",
-			"DpJBMKFfjD_NLX6WD"
-		);
+		// emailjs.sendForm(
+		// 	"service_kdwca9e",
+		// 	"pknsl_contact_template",
+		// 	this.formRef.current,
+		// 	"DpJBMKFfjD_NLX6WD"
+		// );
+
+		const sendEmail = (e) => {
+			e.preventDefault();
+
+			console.log(this.formRef.current);
+
+			emailjs
+				.sendForm(
+					"service_kdwca9e",
+					"pknsl_contact_template",
+					this.formRef.current,
+					"DpJBMKFfjD_NLX6WD"
+				)
+				.then(
+					(result) => {
+						console.log(result.text);
+					},
+					(error) => {
+						console.log(error.text);
+					}
+				);
+		};
 
 		// emailjs
 		// 	.sendForm("service_kdwca9e", "pknsl_contact_template", "#myForm")
@@ -34,10 +61,6 @@ class Contact extends Component {
 
 		return (
 			<section id="contact">
-				<script
-					type="text/javascript"
-					src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
-				></script>
 				<Fade bottom duration={1000}>
 					<div className="row section-head">
 						<div className="two columns header-col">
@@ -55,7 +78,13 @@ class Contact extends Component {
 				<div className="row">
 					<Slide left duration={1000}>
 						<div className="eight columns">
-							<form action="" method="post" id="contactForm" name="contactForm">
+							<form
+								ref={this.formRef}
+								action=""
+								id="contactForm"
+								name="contactForm"
+								onSubmit={sendEmail}
+							>
 								<fieldset>
 									<div>
 										<label htmlFor="contactName">
@@ -67,7 +96,7 @@ class Contact extends Component {
 											size="35"
 											id="contactName"
 											name="contactName"
-											onChange={this.handleChange}
+											// onChange={this.handleChange}
 										/>
 									</div>
 
@@ -81,7 +110,7 @@ class Contact extends Component {
 											size="35"
 											id="contactEmail"
 											name="contactEmail"
-											onChange={this.handleChange}
+											// onChange={this.handleChange}
 										/>
 									</div>
 
@@ -93,7 +122,7 @@ class Contact extends Component {
 											size="35"
 											id="contactSubject"
 											name="contactSubject"
-											onChange={this.handleChange}
+											// onChange={this.handleChange}
 										/>
 									</div>
 
