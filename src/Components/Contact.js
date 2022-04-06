@@ -1,9 +1,26 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { Fade, Slide } from "react-reveal";
 
 class Contact extends Component {
 	render() {
 		if (!this.props.data) return null;
+
+		const [submitted, setSubmitted] = useState(false);
+
+		const handleSubmit = () => {
+			setTimeout(() => {
+				setSubmitted(true);
+			}, 100);
+		};
+
+		if (submitted) {
+			return (
+				<>
+					<div className="text-2xl">Thank you!</div>
+					<div className="text-md">We'll be in touch soon.</div>
+				</>
+			);
+		}
 
 		const name = this.props.data.name;
 		const street = this.props.data.address.street;
@@ -32,7 +49,14 @@ class Contact extends Component {
 				<div className="row">
 					<Slide left duration={1000}>
 						<div className="eight columns">
-							<form action="" method="post" id="contactForm" name="contactForm">
+							<form
+								action=""
+								onSubmit={handleSubmit}
+								method="post"
+								id="contactForm"
+								name="contactForm"
+								target="_blank"
+							>
 								<fieldset>
 									<div>
 										<label htmlFor="contactName">
@@ -45,6 +69,7 @@ class Contact extends Component {
 											id="contactName"
 											name="contactName"
 											onChange={this.handleChange}
+											required
 										/>
 									</div>
 
@@ -59,6 +84,7 @@ class Contact extends Component {
 											id="contactEmail"
 											name="contactEmail"
 											onChange={this.handleChange}
+											required
 										/>
 									</div>
 
@@ -71,6 +97,7 @@ class Contact extends Component {
 											id="contactSubject"
 											name="contactSubject"
 											onChange={this.handleChange}
+											required
 										/>
 									</div>
 
@@ -83,6 +110,7 @@ class Contact extends Component {
 											rows="15"
 											id="contactMessage"
 											name="contactMessage"
+											required
 										></textarea>
 									</div>
 
