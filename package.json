@@ -12,6 +12,7 @@
 		"express": "^4.17.3",
 		"firebase": "^9.6.10",
 		"jquery": "^3.6.0",
+		"node": "^17.7.2",
 		"nodemailer": "^6.7.3",
 		"particles-bg": "^2.5.5",
 		"react": "^17.0.1",
