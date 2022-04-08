@@ -3,12 +3,11 @@
 		"name": "Ugur (Ian) Pekunsal",
 		"description": "I am a recent software engineering graduate, seeking employment in the Greater Toronto Area",
 		"image": "profilepic.jpg",
-		"bio": "I enjoy working with other people and meeting new challenges every day. Through my degree, and my previous work experiences, I gained valuable skills in the fields of Microsoft Office, technology (C#, Javascript, Typescript, Java, Python) problem- solving, and communication (Customer Service). These qualities are the basis of which have helped me to develop myself into the worker that I am today.",
+		"bio": "I came to Canada from Turkey on my own in 2013 when I was 16. That same year, our high school got a new computer science teacher from Waterloo University. My first experience with coding started from there and continued on through college and my personal life. Now I am offering website design and development services to clients across Canada and Turkey. Most people I work for want easily managed CMS systems, mainly WordPress. This trend limits my creativity and impedes me from advancing my skills. I want to expand my knowledge and pursue a career in the web development area where I can utilize my skills with node.js, typescript, and either native JS or along with libraries such as React.js or Angular JS. In the near future, I think I can be an asset to the team I work for and propel the company to advance.",
 		"contactmessage": "If you have any additional questions, please contact me!",
-		"email": "ian@pknsl.com",
+		"email": "ian@pknsl.com or ugurpekunsal@gmail.com",
 		"phone": "647-803-4102",
 		"github": "https://github.com/ugurpekunsal",
-		"project": "https://github.com/nordicgiant2/react-nice-resume",
 		"address": {
 			"street": "50 Charles Street East",
 			"city": "Downtown Toronto",
@@ -30,7 +29,7 @@
 			},
 			{
 				"name": "linkedin",
-				"url": "http://linkedin.com/pknsldotcom",
+				"url": "https://www.linkedin.com/company/pknsldotcom",
 				"className": "fa fa-linkedin"
 			},
 			{
@@ -51,27 +50,27 @@
 			{
 				"school": "Centennial College",
 				"degree": "Software Engineering Technician",
-				"graduated": "December 2021",
-				"description": "Honours Diploma 3.9/4.5"
+				"graduated": "2020 - Class of 2022",
+				"description": "Honours Diploma 3.48 / 4.00"
 			},
 			{
 				"school": "Bronte College of Canada",
-				"degree": "Ontario Post Secondary Diploma",
-				"graduated": "June 2015",
-				"description": "My first experience with computer science was in grade 11."
+				"degree": "Ontario Secondary School Diploma",
+				"graduated": "Class of 2015",
+				"description": ""
 			}
 		],
 		"work": [
 			{
 				"company": "Gri Creative Inc.",
 				"title": "Web Development Intern ",
-				"years": "February 2020 - December 2021",
-				"description": "● Conducted mission-critical code fixes throughout all layers of a large-scale web application Utilizing Java, Node.js, Javascript, JQuery, and Oracle. ● Coordinated with members of all tiers within and outside of the organization. ● Performed software enhancement and tested newly implemented processes."
+				"years": "2018 - 2020",
+				"description": "● Wrote custom HTML, PHP, CSS, and JavaScript for existing websites. ● Assisted in troubleshooting issues on web-based systems. ● Tested and gave feedback on new and existing technologies."
 			},
 			{
 				"company": "Embr Events Inc.",
 				"title": "Brand Ambassador",
-				"years": "May 2017 - May 2018",
+				"years": "2017 - 2018",
 				"description": "● Educated customers of various Muskoka and Beau's products via one-on-one interaction. ● Submitted detailed, accurate reports for inventory, payroll hours, and material used."
 			}
 		],
