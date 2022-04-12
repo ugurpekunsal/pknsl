@@ -70,7 +70,12 @@ class Header extends Component {
 								{/* <a href={project} className="button btn project-btn">
                   <i className="fa fa-book"></i>Project
                 </a> */}
-								<a target="_blank" href={github} className="button btn github-btn">
+								<a
+									target="_blank"
+									rel="noreferrer"
+									href={github}
+									className="button btn github-btn"
+								>
 									<i className="fa fa-github"></i>Github
 								</a>
 							</ul>
