@@ -1,6 +1,6 @@
 {
-	"name": "pknsl",
-	"version": "0.7.0",
+	"name": "pknsldotcom",
+	"version": "1.0.0",
 	"private": true,
 	"homepage": "https://www.pknsl.com",
 	"dependencies": {

@@ -15,7 +15,7 @@
 			"zip": "M4Y 0C3"
 		},
 		"website": "www.pknsl.com",
-		"resumedownload": "https://drive.google.com/file/d/16YJut4ltOBstPcmPIvHS80rJz0Olv9hc/view?usp=sharing",
+		"resumedownload": "../images/resume.pdf",
 		"social": [
 			{
 				"name": "facebook",
@@ -123,7 +123,7 @@
 				"title": "Better Outcomes for Canadians",
 				"category": "portfolio",
 				"image": "01.png",
-				"url": "http://betteroutcomes.ca/"
+				"url": "http://www.betteroutcomes.ca/"
 			},
 			{
 				"title": "One Page Resume Website",

@@ -176,12 +176,12 @@ class Contact extends Component {
 										<span>
 											I started offering website design services! Please check
 											the link below :) Basic Website Design Package: <br></br>
-											<a href="https://t.co/Vc4t7BverT">
+											<a target="_blank" href="https://t.co/Vc4t7BverT">
 												https://t.co/Vc4t7BverT
 											</a>
 										</span>
 										<b>
-											<a href="https://twitter.com/PKNSLdotcom/status/1374795037813346306">
+											<a target="_blank" href="https://twitter.com/PKNSLdotcom/status/1374795037813346306">
 												2:47 PM · Mar 24, 2021
 											</a>
 										</b>
@@ -190,12 +190,12 @@ class Contact extends Component {
 										<span>
 											8 surprising little-known facts about Bill Gates Read
 											more: <br></br>
-											<a href="https://t.co/ZvErXNEvRy">
+											<a target="_blank" href="https://t.co/ZvErXNEvRy">
 												https://t.co/ZvErXNEvRy
 											</a>
 										</span>
 										<b>
-											<a href="https://twitter.com/PKNSLdotcom/status/1344308915811573765">
+											<a target="_blank" href="https://twitter.com/PKNSLdotcom/status/1344308915811573765">
 												10:46 AM · Dec 30, 2020
 											</a>
 										</b>
