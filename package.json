@@ -1,7 +1,6 @@
 {
 	"name": "pknsldotcom",
-	"version": "1.0.0",
-	"private": true,
+	"version": "2.0.0",
 	"homepage": "https://www.pknsl.com",
 	"dependencies": {
 		"@emailjs/browser": "^3.5.0",
