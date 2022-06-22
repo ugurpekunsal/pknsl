@@ -85,7 +85,7 @@ class Contact extends Component {
 								<fieldset>
 									<div>
 										<label htmlFor="contactName">
-											Namedaby <span className="required">*</span>
+											Name <span className="required">*</span>
 										</label>
 										<input
 											type="text"
