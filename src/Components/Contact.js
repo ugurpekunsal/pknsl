@@ -1,6 +1,19 @@
 import React, { Component } from "react";
 import { Fade, Slide } from "react-reveal";
+import $ from "jquery";
 
+import firebase from "firebase/compat/app";
+import "firebase/compat/firestore";
+
+firebase.initializeApp({
+	apiKey: process.env.REACT_APP_apiKey,
+	authDomain: process.env.REACT_APP_authDomain,
+	databaseURL: process.env.REACT_APP_databaseURL,
+	projectId: process.env.REACT_APP_projectId,
+	storageBucket: process.env.REACT_APP_storageBucket,
+	messagingSenderId: process.env.REACT_APP_messagingSenderId,
+	appId: process.env.REACT_APP_appId,
+});
 class Contact extends Component {
 	render() {
 		if (!this.props.data) return null;
@@ -13,24 +26,35 @@ class Contact extends Component {
 		const phone = this.props.data.phone;
 		const message = this.props.data.contactmessage;
 
-		// const sendEmail = (e) => {
-		// 	e.preventDefault();
+		const db = firebase.firestore();
 
-		// 	console.log("jrlpoo");
+		let doSomething = function (e) {
+			$("#image-loader").fadeIn();
+			alert("it works!");
+			e.preventDefault();
 
-		// 	admin
-		// 		.firestore()
-		// 		.collection("mail")
-		// 		.add({
-		// 			to: contactEmail,
-		// 			message: {
-		// 				from: contactName,
-		// 				subject: contactSubject,
-		// 				text: contactMessage,
-		// 			},
-		// 		})
-		// 		.then(() => console.log("Queued email for delivery!"));
-		// }
+			db.collection("mail")
+				.add({
+					to: $("#contactForm #contactEmail").val(),
+					message: {
+						name: $("#contactForm #contactName").val(),
+						subject: $("#contactForm #contactSubject").val(),
+						text: $("#contactForm #contactMessage").val(),
+					},
+				})
+				.then(function () {
+					console.log("Value successfully written!");
+					$("#image-loader").fadeOut();
+					$("#message-warning").hide();
+					$("#contactForm").fadeOut();
+					$("#message-success").fadeIn();
+				})
+				.catch(function (error) {
+					console.error("Error writing Value: ", error);
+					$("#image-loader").fadeOut();
+					$("#message-warning").fadeIn();
+				});
+		};
 
 		return (
 			<section id="contact">
@@ -54,6 +78,7 @@ class Contact extends Component {
 							<form
 								// action="/"
 								// method="POST"
+								onSubmit={doSomething}
 								id="contactForm"
 								name="contactForm"
 							>

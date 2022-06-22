@@ -1,5 +1,3 @@
-import { initializeApp } from "firebase-admin/app";
-
 jQuery(document).ready(function ($) {
 	var time = 380;
 	setTimeout(function () {
@@ -80,7 +78,7 @@ jQuery(document).ready(function ($) {
 			animationSpeed: 600,
 			randomize: false,
 		});
-
+		/*
 		$("form#contactForm button.submit").click(function () {
 			$("#image-loader").fadeIn();
 
@@ -89,21 +87,6 @@ jQuery(document).ready(function ($) {
 			var contactSubject = $("#contactForm #contactSubject").val();
 			var contactMessage = $("#contactForm #contactMessage").val();
 
-			// alert("it works this time!");
-
-			admin
-				.firestore()
-				.collection("mail")
-				.add({
-					to: "someone@example.com",
-					message: {
-						subject: "Hello from Firebase!",
-						text: "This is the plaintext section of the email body.",
-					},
-				})
-				.then(() => console.log("Queued email for delivery!"));
-
-			/*
 			$.ajax({
 				type: "POST",
 				url: "inc/sendEmail.php",
@@ -124,8 +107,9 @@ jQuery(document).ready(function ($) {
 					}
 				},
 			});
-    */
+    
 			return false;
 		});
+    */
 	}, time);
 });
