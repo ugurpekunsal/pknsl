@@ -1,13 +1,7 @@
 import React, { Component } from "react";
 import { Fade, Slide } from "react-reveal";
-import emailjs from "@emailjs/browser";
 
 class Contact extends Component {
-	constructor(props) {
-		super(props);
-		this.formRef = React.createRef();
-	}
-
 	render() {
 		if (!this.props.data) return null;
 
@@ -19,45 +13,24 @@ class Contact extends Component {
 		const phone = this.props.data.phone;
 		const message = this.props.data.contactmessage;
 
-		// emailjs.sendForm(
-		// 	"service_kdwca9e",
-		// 	"pknsl_contact_template",
-		// 	this.formRef.current,
-		// 	"DpJBMKFfjD_NLX6WD"
-		// );
+		// const sendEmail = (e) => {
+		// 	e.preventDefault();
 
-		const sendEmail = (e) => {
-			e.preventDefault();
+		// 	console.log("jrlpoo");
 
-			console.log(this.formRef.current);
-
-			emailjs
-				.sendForm(
-					"service_kdwca9e",
-					"pknsl_contact_template",
-					this.formRef.current,
-					"DpJBMKFfjD_NLX6WD"
-				)
-				.then(
-					(result) => {
-						console.log(result.text);
-					},
-					(error) => {
-						console.log(error.text);
-					}
-				);
-		};
-
-		// emailjs
-		// 	.sendForm("service_kdwca9e", "pknsl_contact_template", "#myForm")
-		// 	.then(
-		// 		function (response) {
-		// 			console.log("SUCCESS!", response.status, response.text);
-		// 		},
-		// 		function (error) {
-		// 			console.log("FAILED...", error);
-		// 		}
-		// 	);
+		// 	admin
+		// 		.firestore()
+		// 		.collection("mail")
+		// 		.add({
+		// 			to: contactEmail,
+		// 			message: {
+		// 				from: contactName,
+		// 				subject: contactSubject,
+		// 				text: contactMessage,
+		// 			},
+		// 		})
+		// 		.then(() => console.log("Queued email for delivery!"));
+		// }
 
 		return (
 			<section id="contact">
@@ -79,16 +52,15 @@ class Contact extends Component {
 					<Slide left duration={1000}>
 						<div className="eight columns">
 							<form
-								ref={this.formRef}
-								action=""
+								// action="/"
+								// method="POST"
 								id="contactForm"
 								name="contactForm"
-								onSubmit={sendEmail}
 							>
 								<fieldset>
 									<div>
 										<label htmlFor="contactName">
-											Name <span className="required">*</span>
+											Namedaby <span className="required">*</span>
 										</label>
 										<input
 											type="text"
@@ -96,7 +68,6 @@ class Contact extends Component {
 											size="35"
 											id="contactName"
 											name="contactName"
-											// onChange={this.handleChange}
 										/>
 									</div>
 
@@ -110,7 +81,6 @@ class Contact extends Component {
 											size="35"
 											id="contactEmail"
 											name="contactEmail"
-											// onChange={this.handleChange}
 										/>
 									</div>
 
@@ -122,7 +92,6 @@ class Contact extends Component {
 											size="35"
 											id="contactSubject"
 											name="contactSubject"
-											// onChange={this.handleChange}
 										/>
 									</div>
 
@@ -141,7 +110,7 @@ class Contact extends Component {
 									<div>
 										<button className="submit">Submit</button>
 										<span id="image-loader">
-											<img alt="" src="images/loader.gif" />
+											<img alt="loading" src="images/loader.gif" />
 										</span>
 									</div>
 								</fieldset>
@@ -225,5 +194,4 @@ class Contact extends Component {
 		);
 	}
 }
-
 export default Contact;
