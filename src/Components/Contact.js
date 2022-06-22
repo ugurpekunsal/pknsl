@@ -30,18 +30,38 @@ class Contact extends Component {
 
 		let doSomething = function (e) {
 			$("#image-loader").fadeIn();
-			alert("it works!");
 			e.preventDefault();
 
+			const validateEmail = (email) => {
+				return String(email)
+					.toLowerCase()
+					.match(
+						/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+					);
+			};
+
+			const payload = {
+				to: $("#contactForm #contactEmail").val(),
+				message: {
+					name: $("#contactForm #contactName").val(),
+					subject: $("#contactForm #contactSubject").val(),
+					text: $("#contactForm #contactMessage").val(),
+				},
+			};
+
+			let msg;
+			if (!validateEmail(payload.to))
+				msg = "Please enter a valid email address.";
+			if (!payload.message.text) msg = "Please enter a message.";
+			if (msg) {
+				$("#image-loader").fadeOut();
+				$("#message-warning").html(msg);
+				$("#message-warning").fadeIn();
+				return;
+			}
+
 			db.collection("mail")
-				.add({
-					to: $("#contactForm #contactEmail").val(),
-					message: {
-						name: $("#contactForm #contactName").val(),
-						subject: $("#contactForm #contactSubject").val(),
-						text: $("#contactForm #contactMessage").val(),
-					},
-				})
+				.add(payload)
 				.then(function () {
 					console.log("Value successfully written!");
 					$("#image-loader").fadeOut();
