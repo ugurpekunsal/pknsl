@@ -6,7 +6,7 @@ class Header extends Component {
 	render() {
 		if (!this.props.data) return null;
 
-		//const project = this.props.data.project;
+		const linkedin = this.props.data.linkedin;
 		const github = this.props.data.github;
 		const name = this.props.data.name;
 		const description = this.props.data.description;
@@ -67,9 +67,14 @@ class Header extends Component {
 						<hr />
 						<Fade bottom duration={2000}>
 							<ul className="social">
-								{/* <a href={project} className="button btn project-btn">
-                  <i className="fa fa-book"></i>Project
-                </a> */}
+								<a
+									target="_blank"
+									rel="noreferrer"
+									href={linkedin}
+									className="button btn linkedin-btn"
+								>
+									<i className="fa fa-linkedin"></i>LinkedIn
+								</a>
 								<a
 									target="_blank"
 									rel="noreferrer"
