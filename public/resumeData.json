@@ -51,8 +51,14 @@
 			{
 				"school": "Centennial College",
 				"degree": "Software Engineering Technician",
-				"graduated": "2020 - Class of 2022",
-				"description": "Honours Diploma 3.48 / 4.00"
+				"graduated": "Class of 2022",
+				"description": ""
+			},
+			{
+				"school": "Algonquin College",
+				"degree": "Private Pilot's License",
+				"graduated": "Class of 2018",
+				"description": ""
 			},
 			{
 				"school": "Bronte College of Canada",
@@ -63,22 +69,28 @@
 		],
 		"work": [
 			{
-				"company": "Sylogist",
+				"company": "Sylogist Ltd.",
 				"title": "Web Developer",
 				"years": "2022 - Present",
-				"description": "● Working with an amazing team to deliver high quality CRM systems."
+				"description": "As a software developer at Sylogist's 'The Portal Connector' team, I am responsible for integrating Microsoft Dynamics CRM with a CMS system. My duties include developing the front-end according to wireframes and user stories, as well as applying performance fixes to reduce loading times and decrease Azure operating costs."
+			},
+			{
+				"company": "Destinade Travel Tech Solutions Ltd.",
+				"title": "Freelance Web Developer",
+				"years": "2020 - 2022",
+				"description": "As a full-time student at Centennial College and part-time freelance software developer for Destinade Travel Tech Solutions Limited, I developed and maintained travel management software. My responsibilities included implementing new features, testing and debugging the software, and providing technical support to customers. I gained valuable experience in software development, project management, and customer service, and contributed to the growth of the company."
 			},
 			{
 				"company": "Gri Creative Inc.",
 				"title": "Junior Web Developer",
 				"years": "2018 - 2020",
-				"description": "● Wrote custom HTML, PHP, CSS, and JavaScript for existing websites. ● Assisted in troubleshooting issues on web-based systems. ● Tested and gave feedback on new and existing technologies."
+				"description": "During my time at Gri Creative as a junior developer, I applied custom layouts to existing portals and fixed bugs. I worked closely with senior developers to understand requirements and design specifications, using my HTML, CSS, and JavaScript skills to create visually appealing and functional layouts. I participated in code reviews and collaborated with colleagues to ensure the quality and consistency of the codebase."
 			},
 			{
 				"company": "Embr Events Inc.",
 				"title": "Brand Ambassador",
 				"years": "2017 - 2018",
-				"description": "● Educated customers of various Muskoka and Beau's products via one-on-one interaction. ● Submitted detailed, accurate reports for inventory, payroll hours, and material used."
+				"description": "Educated customers of various Muskoka and Beau's products via one-on-one interaction. Submitted detailed, accurate reports for inventory, payroll hours, and material used."
 			}
 		],
 		"skills": [
@@ -99,46 +111,47 @@
 				"level": "60%"
 			},
 			{
-				"name": "HTML",
-				"level": "100%"
+				"name": "React",
+				"level": "90%"
 			},
 			{
-				"name": "CSS",
-				"level": "99%"
+				"name": "Angular",
+				"level": "80%"
 			}
 		]
 	},
 	"portfolio": {
 		"projects": [
 			{
+				"title": "Express Travel",
+				"category": "portfolio",
+				"image": "05.png",
+				"url": "https://expresstravelint.ca/"
+			},
+			{
+				"title": "Destinade",
+				"category": "portfolio",
+				"image": "04.png",
+				"url": "https://destinade.com/"
+			},
+			{
 				"title": "Barcin Music",
 				"category": "portfolio",
-				"image": "06.png",
+				"image": "03.png",
 				"url": "https://barcin.web.app/"
 			},
-			{
-				"title": "Better Outcomes",
-				"category": "portfolio",
-				"image": "01.png",
-				"url": "http://www.betteroutcomes.ca/"
-			},
-			{
-				"title": "One Page Resume Website",
-				"category": "portfolio",
-				"image": "02.png",
-				"url": "https://www.rizacansolak.com"
-			},
-			{
-				"title": "Survey Creation and Analytics",
-				"category": "portfolio",
-				"image": "03.png",
-				"url": "https://comp229-project-group-2.herokuapp.com/"
-			},
+
 			{
 				"title": "Zero Apnea",
 				"category": "portfolio",
-				"image": "05.png",
+				"image": "02.png",
 				"url": "https://zeroapnea.org/"
+			},
+			{
+				"title": "Resume",
+				"category": "portfolio",
+				"image": "01.png",
+				"url": "https://www.rizacansolak.com"
 			}
 		]
 	}
