@@ -123,6 +123,12 @@
 	"portfolio": {
 		"projects": [
 			{
+				"title": "Resume II",
+				"category": "portfolio",
+				"image": "06.png",
+				"url": "https://www.rizacansolak.com"
+			},
+			{
 				"title": "Express Travel",
 				"category": "portfolio",
 				"image": "05.png",
@@ -148,7 +154,7 @@
 				"url": "https://zeroapnea.org/"
 			},
 			{
-				"title": "Resume",
+				"title": "Resume I",
 				"category": "portfolio",
 				"image": "01.png",
 				"url": "https://www.rizacansolak.com"
