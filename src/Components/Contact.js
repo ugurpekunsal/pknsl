@@ -29,18 +29,16 @@ class Contact extends Component {
 			};
 
 			const payload = {
-				to: $("#contactForm #contactEmail").val(),
-				message: {
-					name: $("#contactForm #contactName").val(),
-					subject: $("#contactForm #contactSubject").val(),
-					text: $("#contactForm #contactMessage").val(),
-				},
+				name: $("#contactForm #contactName").val(),
+				email: $("#contactForm #contactEmail").val(),
+				subject: $("#contactForm #contactSubject").val(),
+				message: $("#contactForm #contactMessage").val(),
 			};
 
 			let msg;
-			if (!validateEmail(payload.to))
+			if (!validateEmail(payload.email))
 				msg = "Please enter a valid email address.";
-			if (!payload.message.text) msg = "Please enter a message.";
+			if (!payload.message) msg = "Please enter a message.";
 			if (msg) {
 				$("#image-loader").fadeOut();
 				$("#message-warning").html(msg);
@@ -56,10 +54,10 @@ class Contact extends Component {
 					"Content-Type": "application/x-www-form-urlencoded",
 				},
 				data: {
-					name: payload.message.name,
-					email: payload.message.email,
-					subject: payload.message.subject,
-					message: payload.message.text,
+					name: payload.name,
+					email: payload.email,
+					subject: payload.subject,
+					message: payload.message,
 				},
 			};
 
