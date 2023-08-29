@@ -24,9 +24,8 @@ class Footer extends Component {
 
 							<ul className="copyright">
 								<li>
-									&copy; Copyright 2020 -{" "}
-									<script>document.write(new Date().getFullYear())</script>{" "}
-									PKNSL Website Design & Development
+									Copyright &copy; 2020 - {new Date().getFullYear()}
+									<br></br>PKNSL Website Design & Development
 								</li>
 							</ul>
 						</div>

@@ -1,9 +1,9 @@
 {
 	"main": {
-		"name": "Ugur (Ian) Pekunsal",
-		"description": "I am a web developer at The Portal Connector, a division of Sylogist",
+		"name": "Uğur (Ian) Pekünsal",
+		"description": "I am a web developer with expertise in front-end development, integrating APIs with a user-friendly UI/UX.",
 		"image": "profilepic.jpg",
-		"bio": "I came to Canada from Turkey on my own in 2013 when I was 16. That same year, our high school got a new computer science teacher from Waterloo University. My first experience with coding started from there and continued on through college and my personal life. Now I am a web developer at The Portal Connector, where I am one of many highly qualified engineers that produce sophisticated but user friendly CRM systems. In the near future I want to become a valued member of the company and make a strong and visible, positive impact. My primary goal is to propel The Portal Connector to grow consistently while maintaining first class quality and client satisfaction.",
+		"bio": "I came to Canada from Turkey on my own in 2013 when I was 16. That same year, our high school got a new computer science teacher from Waterloo University. My first experience with coding started from there and continued on through college and my personal life.",
 		"contactmessage": "If you have any additional questions, please contact me!",
 		"email": "ian@pknsl.com or ugurpekunsal@gmail.com",
 		"phone": "647-847-8487",
@@ -11,7 +11,7 @@
 		"linkedin": "https://www.linkedin.com/in/ugurpekunsal/",
 		"address": {
 			"street": "50 Charles Street East",
-			"city": "Downtown Toronto",
+			"city": "Toronto",
 			"state": "Ontario",
 			"zip": "M4Y 0C3"
 		},
@@ -71,14 +71,14 @@
 			{
 				"company": "Sylogist Ltd.",
 				"title": "Web Developer",
-				"years": "2022 - Present",
-				"description": "As a software developer at Sylogist's 'The Portal Connector' team, I am responsible for integrating Microsoft Dynamics CRM with a CMS system. My duties include developing the front-end according to wireframes and user stories, as well as applying performance fixes to reduce loading times and decrease Azure operating costs."
+				"years": "2022 - 2023",
+				"description": "As a software developer at Sylogist's 'The Portal Connector' team, I was responsible for integrating Microsoft Dynamics CRM with a CMS system. My duties included developing the front-end according to wireframes and user stories, as well as applying performance fixes to reduce loading times and decrease Azure operating costs."
 			},
 			{
 				"company": "Destinade Travel Tech Solutions Ltd.",
 				"title": "Freelance Web Developer",
 				"years": "2020 - 2022",
-				"description": "As a full-time student at Centennial College and part-time freelance software developer for Destinade Travel Tech Solutions Limited, I developed and maintained travel management software. My responsibilities included implementing new features, testing and debugging the software, and providing technical support to customers. I gained valuable experience in software development, project management, and customer service, and contributed to the growth of the company."
+				"description": "As a part-time freelance software developer for Destinade Travel Tech Solutions Limited, I developed and maintained travel management software. My responsibilities included implementing new features, testing and debugging the software, and providing technical support to customers. I gained valuable experience in software development, project management, and customer service, and contributed to the growth of the company."
 			},
 			{
 				"company": "Gri Creative Inc.",
@@ -99,24 +99,28 @@
 				"level": "90%"
 			},
 			{
+				"name": "JQuery",
+				"level": "80%"
+			},
+			{
+				"name": "React",
+				"level": "70%"
+			},
+			{
 				"name": "C#",
+				"level": "90%"
+			},
+			{
+				"name": "Razor",
 				"level": "80%"
 			},
 			{
 				"name": "Java",
-				"level": "70%"
-			},
-			{
-				"name": "Python",
 				"level": "60%"
 			},
 			{
-				"name": "React",
-				"level": "90%"
-			},
-			{
-				"name": "Angular",
-				"level": "80%"
+				"name": "Python",
+				"level": "50%"
 			}
 		]
 	},
@@ -126,7 +130,7 @@
 				"title": "Resume II",
 				"category": "portfolio",
 				"image": "06.png",
-				"url": "https://www.rizacansolak.com"
+				"url": "https://oksalberk.web.app/"
 			},
 			{
 				"title": "Express Travel",

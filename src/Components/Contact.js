@@ -2,18 +2,8 @@ import React, { Component } from "react";
 import { Fade, Slide } from "react-reveal";
 import $ from "jquery";
 
-import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 
-firebase.initializeApp({
-	apiKey: process.env.REACT_APP_apiKey,
-	authDomain: process.env.REACT_APP_authDomain,
-	databaseURL: process.env.REACT_APP_databaseURL,
-	projectId: process.env.REACT_APP_projectId,
-	storageBucket: process.env.REACT_APP_storageBucket,
-	messagingSenderId: process.env.REACT_APP_messagingSenderId,
-	appId: process.env.REACT_APP_appId,
-});
 class Contact extends Component {
 	render() {
 		if (!this.props.data) return null;
@@ -26,9 +16,7 @@ class Contact extends Component {
 		const phone = this.props.data.phone;
 		const message = this.props.data.contactmessage;
 
-		const db = firebase.firestore();
-
-		let doSomething = function (e) {
+		let sendMessage = function (e) {
 			$("#image-loader").fadeIn();
 			e.preventDefault();
 
@@ -60,20 +48,33 @@ class Contact extends Component {
 				return;
 			}
 
-			db.collection("mail")
-				.add(payload)
-				.then(function () {
-					console.log("Value successfully written!");
+			var settings = {
+				url: "https://us-central1-pknsldotcom.cloudfunctions.net/sendMailOverHTTP",
+				method: "POST",
+				timeout: 0,
+				headers: {
+					"Content-Type": "application/x-www-form-urlencoded",
+				},
+				data: {
+					name: payload.message.name,
+					email: payload.message.email,
+					subject: payload.message.subject,
+					message: payload.message.text,
+				},
+			};
+
+			$.ajax(settings).done(function (response) {
+				console.log(response);
+				if (response.includes("OK")) {
 					$("#image-loader").fadeOut();
 					$("#message-warning").hide();
 					$("#contactForm").fadeOut();
 					$("#message-success").fadeIn();
-				})
-				.catch(function (error) {
-					console.error("Error writing Value: ", error);
+				} else {
 					$("#image-loader").fadeOut();
 					$("#message-warning").fadeIn();
-				});
+				}
+			});
 		};
 
 		return (
@@ -95,13 +96,7 @@ class Contact extends Component {
 				<div className="row">
 					<Slide left duration={1000}>
 						<div className="eight columns">
-							<form
-								// action="/"
-								// method="POST"
-								onSubmit={doSomething}
-								id="contactForm"
-								name="contactForm"
-							>
+							<form onSubmit={sendMessage} id="contactForm" name="contactForm">
 								<fieldset>
 									<div>
 										<label htmlFor="contactName">
