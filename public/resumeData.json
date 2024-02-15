@@ -2,8 +2,8 @@
 	"main": {
 		"name": "Uğur (Ian) Pekünsal",
 		"description": "I am a web developer with expertise in front-end development, integrating APIs with a user-friendly UI/UX.",
-		"image": "profilepic.jpg",
-		"bio": "I came to Canada from Turkey on my own in 2013 when I was 16. That same year, our high school got a new computer science teacher from Waterloo University. My first experience with coding started from there and continued on through college and my personal life.",
+		"image": "profilepic.png",
+		"bio": "Web developer with expertise in front-end development and an in-depth understanding of back-end development practices and methodologies, thus able to work on both ends of a project to assist the team, balance the workload, and meet project deadlines.",
 		"contactmessage": "If you have any additional questions, please contact me!",
 		"email": "ian@pknsl.com or ugurpekunsal@gmail.com",
 		"phone": "647-847-8487",
@@ -72,25 +72,25 @@
 				"company": "Sylogist Ltd.",
 				"title": "Web Developer",
 				"years": "2022 - 2023",
-				"description": "As a software developer at Sylogist's 'The Portal Connector' team, I was responsible for integrating Microsoft Dynamics CRM with a CMS system. My duties included developing the front-end according to wireframes and user stories, as well as applying performance fixes to reduce loading times and decrease Azure operating costs."
+				"description": "Integrated Microsoft Dynamics CRMs with CMS systems.\nDeveloped the front end according to wireframes and user stories.\nApplied performance fixes to reduce loading times and decrease Azure operating costs."
 			},
 			{
 				"company": "Destinade Travel Tech Solutions Ltd.",
 				"title": "Freelance Web Developer",
 				"years": "2020 - 2022",
-				"description": "As a part-time freelance software developer for Destinade Travel Tech Solutions Limited, I developed and maintained travel management software. My responsibilities included implementing new features, testing and debugging the software, and providing technical support to customers. I gained valuable experience in software development, project management, and customer service, and contributed to the growth of the company."
+				"description": "Developed and maintained travel management software.\nImplemented new features, tested, and debugged the software.\nGained valuable experience in software development, project management, and customer service."
 			},
 			{
 				"company": "Gri Creative Inc.",
 				"title": "Junior Web Developer",
 				"years": "2018 - 2020",
-				"description": "During my time at Gri Creative as a junior developer, I applied custom layouts to existing portals and fixed bugs. I worked closely with senior developers to understand requirements and design specifications, using my HTML, CSS, and JavaScript skills to create visually appealing and functional layouts. I participated in code reviews and collaborated with colleagues to ensure the quality and consistency of the codebase."
+				"description": "Applied custom layouts to existing portals and fixed bugs.\nCollaborated closely with senior developers to understand requirements and design specifications.\nUsed HTML, CSS, and JavaScript skills to create visually appealing and functional layouts.\nParticipated in code reviews with colleagues to ensure the quality and consistency of the codebase."
 			},
 			{
 				"company": "Embr Events Inc.",
 				"title": "Brand Ambassador",
 				"years": "2017 - 2018",
-				"description": "Educated customers of various Muskoka and Beau's products via one-on-one interaction. Submitted detailed, accurate reports for inventory, payroll hours, and material used."
+				"description": "Educated customers of various Muskoka and Beau's products via one-on-one interaction.\nSubmitted detailed, accurate reports for inventory, payroll hours, and material used."
 			}
 		],
 		"skills": [
@@ -127,12 +127,6 @@
 	"portfolio": {
 		"projects": [
 			{
-				"title": "Resume II",
-				"category": "portfolio",
-				"image": "06.png",
-				"url": "https://oksalberk.web.app/"
-			},
-			{
 				"title": "Express Travel",
 				"category": "portfolio",
 				"image": "05.png",
@@ -162,6 +156,12 @@
 				"category": "portfolio",
 				"image": "01.png",
 				"url": "https://rizasolak.web.app/"
+			},
+			{
+				"title": "Resume II",
+				"category": "portfolio",
+				"image": "06.png",
+				"url": "https://oksalberk.web.app/"
 			}
 		]
 	}

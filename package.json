@@ -1,6 +1,6 @@
 {
 	"name": "pknsldotcom",
-	"version": "3.1.2",
+	"version": "2024.2.15",
 	"homepage": "https://pknsl.com",
 	"dependencies": {
 		"@testing-library/jest-dom": "^5.11.4",
