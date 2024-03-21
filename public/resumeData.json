@@ -69,22 +69,28 @@
 		],
 		"work": [
 			{
-				"company": "Sylogist Ltd.",
-				"title": "Web Developer",
-				"years": "2022 - 2023",
-				"description": "Integrated Microsoft Dynamics CRMs with CMS systems.\nDeveloped the front end according to wireframes and user stories.\nApplied performance fixes to reduce loading times and decrease Azure operating costs."
+				"company": "Nelson",
+				"title": "Digital Content Developer",
+				"years": "2024 - Present",
+				"description": "Develop engaging Digital Content and multimedia using HTML, JavaScript, and other relevant technologies.\nCollaborate with SMEs and project managers to gather requirements and ensure content meets the desired objectives.\nCollaborate with cross-functional teams to gather feedback, make improvements, and iterate content based on user needs."
 			},
 			{
 				"company": "Destinade Travel Tech Solutions Ltd.",
 				"title": "Freelance Web Developer",
-				"years": "2020 - 2022",
-				"description": "Developed and maintained travel management software.\nImplemented new features, tested, and debugged the software.\nGained valuable experience in software development, project management, and customer service."
+				"years": "2023 - 2024",
+				"description": "Develop and maintain travel management software.\nImplement new features, test, and debug the software."
+			},
+			{
+				"company": "Sylogist Ltd.",
+				"title": "Web Developer",
+				"years": "2022 - 2023",
+				"description": "Integrate Microsoft Dynamics CRM with CMS systems.\nDevelop the front end according to wireframes and user stories.\nApply performance fixes to reduce loading times and decrease Azure operating costs."
 			},
 			{
 				"company": "Gri Creative Inc.",
 				"title": "Junior Web Developer",
 				"years": "2018 - 2020",
-				"description": "Applied custom layouts to existing portals and fixed bugs.\nCollaborated closely with senior developers to understand requirements and design specifications.\nUsed HTML, CSS, and JavaScript skills to create visually appealing and functional layouts.\nParticipated in code reviews with colleagues to ensure the quality and consistency of the codebase."
+				"description": "Apply custom layouts to existing portals and fix bugs.\nCollaborate closely with senior developers to understand requirements and design specifications.\nUse HTML, CSS, and JavaScript skills to create visually appealing and functional layouts.\nParticipate in code reviews with colleagues to ensure the quality and consistency of the codebase."
 			},
 			{
 				"company": "Embr Events Inc.",
