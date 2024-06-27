@@ -1,0 +1,159 @@
+{
+	"main": {
+		"name": "Uğur (Ian) Pekünsal",
+		"description": "I am a web developer with expertise in front-end development, integrating APIs with a user-friendly UI/UX.",
+		"image": "profilepic.png",
+		"bio": "Web developer with expertise in front-end development and an in-depth understanding of back-end development practices and methodologies, thus able to work on both ends of a project to assist the team, balance the workload, and meet project deadlines.",
+		"contactmessage": "If you have any additional questions, please contact me!",
+		"email": "ian@pknsl.com or ugurpekunsal@gmail.com",
+		"phone": "647-847-8487",
+		"github": "https://github.com/ugurpekunsal",
+		"linkedin": "https://www.linkedin.com/in/ugurpekunsal/",
+		"address": {
+			"street": "50 Charles Street East",
+			"city": "Toronto",
+			"state": "Ontario",
+			"zip": "M4Y 0C3"
+		},
+		"website": "www.pknsl.com",
+		"resumedownload": "../documents/resume.pdf",
+		"social": [
+			{
+				"name": "linkedin",
+				"url": "https://www.linkedin.com/in/ugurpekunsal/",
+				"className": "fa fa-linkedin"
+			},
+			{
+				"name": "github",
+				"url": "https://github.com/ugurpekunsal",
+				"className": "fa fa-github"
+			}
+		]
+	},
+	"resume": {
+		"skillmessage": "Below is a list of my current skills. This list is an indication of how fast I can solve problems utilizing these technologies.",
+		"education": [
+			{
+				"school": "Centennial College",
+				"degree": "Software Engineering Technician",
+				"graduated": "Class of 2022",
+				"description": ""
+			},
+			{
+				"school": "Algonquin College",
+				"degree": "Private Pilot's License",
+				"graduated": "Class of 2018",
+				"description": ""
+			},
+			{
+				"school": "Bronte College of Canada",
+				"degree": "Ontario Secondary School Diploma",
+				"graduated": "Class of 2015",
+				"description": ""
+			}
+		],
+		"work": [
+			{
+				"company": "Nelson",
+				"title": "Digital Content Developer",
+				"years": "2024 - Present",
+				"description": "Develop engaging Digital Content and multimedia using HTML, JavaScript, and other relevant technologies.\nCollaborate with SMEs and project managers to gather requirements and ensure content meets the desired objectives.\nCollaborate with cross-functional teams to gather feedback, make improvements, and iterate content based on user needs."
+			},
+			{
+				"company": "Sylogist Ltd.",
+				"title": "Web Developer",
+				"years": "2022 - 2024",
+				"description": "Integrate Microsoft Dynamics CRM with CMS systems.\nDevelop the front end according to wireframes and user stories.\nApply performance fixes to reduce loading times and decrease Azure operating costs."
+			},
+			{
+				"company": "Destinade Travel Tech Solutions Ltd.",
+				"title": "Freelance Web Developer",
+				"years": "2020 - 2022",
+				"description": "Develop and maintain travel management software.\nImplement new features, test, and debug the software."
+			},
+			{
+				"company": "Gri Creative Inc.",
+				"title": "Junior Web Developer",
+				"years": "2018 - 2020",
+				"description": "Apply custom layouts to existing portals and fix bugs.\nCollaborate closely with senior developers to understand requirements and design specifications.\nUse HTML, CSS, and JavaScript skills to create visually appealing and functional layouts.\nParticipate in code reviews with colleagues to ensure the quality and consistency of the codebase."
+			},
+			{
+				"company": "Embr Events Inc.",
+				"title": "Brand Ambassador",
+				"years": "2017 - 2018",
+				"description": "Educated customers of various Muskoka and Beau's products via one-on-one interaction.\nSubmitted detailed, accurate reports for inventory, payroll hours, and material used."
+			}
+		],
+		"skills": [
+			{
+				"name": "Javascript",
+				"level": "90%"
+			},
+			{
+				"name": "JQuery",
+				"level": "80%"
+			},
+			{
+				"name": "React",
+				"level": "70%"
+			},
+			{
+				"name": "C#",
+				"level": "90%"
+			},
+			{
+				"name": "Razor",
+				"level": "80%"
+			},
+			{
+				"name": "Java",
+				"level": "60%"
+			},
+			{
+				"name": "Python",
+				"level": "50%"
+			}
+		]
+	},
+	"portfolio": {
+		"projects": [
+			{
+				"title": "Express Travel",
+				"category": "portfolio",
+				"image": "05.png",
+				"url": "https://expresstravelint.ca/"
+			},
+			{
+				"title": "Destinade",
+				"category": "portfolio",
+				"image": "04.png",
+				"url": "https://destinade.com/"
+			},
+			{
+				"title": "Barcin Music",
+				"category": "portfolio",
+				"image": "03.png",
+				"url": "https://barcin.web.app/"
+			},
+
+			{
+				"title": "Zero Apnea",
+				"category": "portfolio",
+				"image": "02.png",
+				"url": "https://zeroapnea.org/"
+			},
+			{
+				"title": "Resume I",
+				"category": "portfolio",
+				"image": "01.png",
+				"url": "https://rizasolak.web.app/"
+			},
+			{
+				"title": "Resume II",
+				"category": "portfolio",
+				"image": "06.png",
+				"url": "https://oksalberk.web.app/"
+			}
+		]
+	}
+}

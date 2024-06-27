@@ -1,14 +1,13 @@
 {
 	"name": "pknsldotcom",
-	"version": "2024.3.21",
+	"version": "2024.6.26",
 	"homepage": "https://pknsl.com",
 	"dependencies": {
 		"@testing-library/jest-dom": "^5.11.4",
 		"@testing-library/react": "^11.1.0",
 		"@testing-library/user-event": "^12.1.10",
-		"anix": "^1.3.6",
-		"caniuse-lite": "^1.0.30001599",
-		"firebase": "^9.8.3",
+		"css-purge": "^3.1.8",
+		"firebase": "^9.23.0",
 		"firebase-admin": "^11.11.1",
 		"firebase-functions": "^4.8.1",
 		"jquery": "^3.6.0",
@@ -19,7 +18,6 @@
 		"react-ga": "^3.3.0",
 		"react-reveal": "^1.2.2",
 		"react-scripts": "^5.0.1",
-		"react-zmage": "^0.8.5-beta.36",
 		"web-vitals": "^1.0.1"
 	},
 	"scripts": {
@@ -45,8 +43,5 @@
 			"last 1 firefox version",
 			"last 1 safari version"
 		]
-	},
-	"devDependencies": {
-		"chokidar": "^3.5.1"
 	}
 }
