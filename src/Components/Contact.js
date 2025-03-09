@@ -1,169 +1,174 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Fade, Slide } from "react-reveal";
-import $ from "jquery";
+import axios from "axios";
 
 import "firebase/compat/firestore";
 
-class Contact extends Component {
-	render() {
-		if (!this.props.data) return null;
+const Contact = (props) => {
+	const [formData, setFormData] = useState({
+		name: "",
+		email: "",
+		subject: "",
+		message: ""
+	});
+	const [loading, setLoading] = useState(false);
+	const [messageSuccess, setMessageSuccess] = useState(false);
+	const [messageError, setMessageError] = useState("");
 
-		const name = this.props.data.name;
-		const street = this.props.data.address.street;
-		const city = this.props.data.address.city;
-		const state = this.props.data.address.state;
-		const zip = this.props.data.address.zip;
-		const phone = this.props.data.phone;
-		const message = this.props.data.contactmessage;
+	if (!props.data) return null;
 
-		let sendMessage = function (e) {
-			$("#image-loader").fadeIn();
-			e.preventDefault();
+	const { name, address, phone, contactmessage } = props.data;
+	const { street, city, state, zip } = address;
 
-			const validateEmail = (email) => {
-				return String(email)
-					.toLowerCase()
-					.match(
-						/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-					);
-			};
+	const handleChange = (e) => {
+		setFormData({
+			...formData,
+			[e.target.id.replace("contact", "").toLowerCase()]: e.target.value
+		});
+	};
 
-			const payload = {
-				name: $("#contactForm #contactName").val(),
-				email: $("#contactForm #contactEmail").val(),
-				subject: $("#contactForm #contactSubject").val(),
-				message: $("#contactForm #contactMessage").val(),
-			};
+	const validateEmail = (email) => {
+		return String(email)
+			.toLowerCase()
+			.match(
+				/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+			);
+	};
 
-			let msg;
-			if (!validateEmail(payload.email))
-				msg = "Please enter a valid email address.";
-			if (!payload.message) msg = "Please enter a message.";
-			if (msg) {
-				$("#image-loader").fadeOut();
-				$("#message-warning").html(msg);
-				$("#message-warning").fadeIn();
-				return;
+	const sendMessage = async (e) => {
+		e.preventDefault();
+		setLoading(true);
+		setMessageError("");
+		setMessageSuccess(false);
+
+		if (!validateEmail(formData.email)) {
+			setMessageError("Please enter a valid email address.");
+			setLoading(false);
+			return;
+		}
+		
+		if (!formData.message) {
+			setMessageError("Please enter a message.");
+			setLoading(false);
+			return;
+		}
+
+		try {
+			const response = await axios.post(
+				"https://us-central1-pknsldotcom.cloudfunctions.net/sendMailOverHTTP",
+				formData
+			);
+			
+			if (response.data.includes("OK")) {
+				setMessageSuccess(true);
+			} else {
+				setMessageError("An error occurred. Please try again later.");
 			}
+		} catch (error) {
+			console.error("Error sending message:", error);
+			setMessageError("Failed to send message. Please try again later.");
+		} finally {
+			setLoading(false);
+		}
+	};
 
-			var settings = {
-				url: "https://us-central1-pknsldotcom.cloudfunctions.net/sendMailOverHTTP",
-				method: "POST",
-				timeout: 0,
-				headers: {
-					"Content-Type": "application/x-www-form-urlencoded",
-				},
-				data: {
-					name: payload.name,
-					email: payload.email,
-					subject: payload.subject,
-					message: payload.message,
-				},
-			};
+	return (
+		<section id="contact">
+			<Fade bottom duration={1000}>
+				<div className="row section-head">
+					<div className="two columns header-col">
+						<h1>
+							<span>Get In Touch.</span>
+						</h1>
+					</div>
 
-			$.ajax(settings).done(function (response) {
-				console.log(response);
-				if (response.includes("OK")) {
-					$("#image-loader").fadeOut();
-					$("#message-warning").hide();
-					$("#contactForm").fadeOut();
-					$("#message-success").fadeIn();
-				} else {
-					$("#image-loader").fadeOut();
-					$("#message-warning").fadeIn();
-				}
-			});
-		};
+					<div className="ten columns">
+						<p className="lead">{contactmessage}</p>
+					</div>
+				</div>
+			</Fade>
 
-		return (
-			<section id="contact">
-				<Fade bottom duration={1000}>
-					<div className="row section-head">
-						<div className="two columns header-col">
-							<h1>
-								<span>Get In Touch.</span>
-							</h1>
-						</div>
+			<div className="row">
+				<Slide left duration={1000}>
+					<div className="eight columns">
+						<form onSubmit={sendMessage} id="contactForm" name="contactForm">
+							<fieldset>
+								<div>
+									<label htmlFor="contactName">
+										Name <span className="required">*</span>
+									</label>
+									<input
+										type="text"
+										defaultValue=""
+										size="35"
+										id="contactName"
+										name="contactName"
+										onChange={handleChange}
+									/>
+								</div>
 
-						<div className="ten columns">
-							<p className="lead">{message}</p>
+								<div>
+									<label htmlFor="contactEmail">
+										Email <span className="required">*</span>
+									</label>
+									<input
+										type="text"
+										defaultValue=""
+										size="35"
+										id="contactEmail"
+										name="contactEmail"
+										onChange={handleChange}
+									/>
+								</div>
+
+								<div>
+									<label htmlFor="contactSubject">Subject</label>
+									<input
+										type="text"
+										defaultValue=""
+										size="35"
+										id="contactSubject"
+										name="contactSubject"
+										onChange={handleChange}
+									/>
+								</div>
+
+								<div>
+									<label htmlFor="contactMessage">
+										Message <span className="required">*</span>
+									</label>
+									<textarea
+										cols="50"
+										rows="15"
+										id="contactMessage"
+										name="contactMessage"
+										onChange={handleChange}
+									></textarea>
+								</div>
+
+								<div>
+									<button className="submit">Submit</button>
+									<span id="image-loader">
+										{loading && <img alt="loading" src="images/loader.gif" />}
+									</span>
+								</div>
+							</fieldset>
+						</form>
+
+						<div id="message-warning">{messageError}</div>
+						<div id="message-success">
+							{messageSuccess && (
+								<>
+									<i className="fa fa-check"></i>Your message was sent, thank you!
+									<br />
+								</>
+							)}
 						</div>
 					</div>
-				</Fade>
+				</Slide>
+			</div>
+		</section>
+	);
+};
 
-				<div className="row">
-					<Slide left duration={1000}>
-						<div className="eight columns">
-							<form onSubmit={sendMessage} id="contactForm" name="contactForm">
-								<fieldset>
-									<div>
-										<label htmlFor="contactName">
-											Name <span className="required">*</span>
-										</label>
-										<input
-											type="text"
-											defaultValue=""
-											size="35"
-											id="contactName"
-											name="contactName"
-										/>
-									</div>
-
-									<div>
-										<label htmlFor="contactEmail">
-											Email <span className="required">*</span>
-										</label>
-										<input
-											type="text"
-											defaultValue=""
-											size="35"
-											id="contactEmail"
-											name="contactEmail"
-										/>
-									</div>
-
-									<div>
-										<label htmlFor="contactSubject">Subject</label>
-										<input
-											type="text"
-											defaultValue=""
-											size="35"
-											id="contactSubject"
-											name="contactSubject"
-										/>
-									</div>
-
-									<div>
-										<label htmlFor="contactMessage">
-											Message <span className="required">*</span>
-										</label>
-										<textarea
-											cols="50"
-											rows="15"
-											id="contactMessage"
-											name="contactMessage"
-										></textarea>
-									</div>
-
-									<div>
-										<button className="submit">Submit</button>
-										<span id="image-loader">
-											<img alt="loading" src="images/loader.gif" />
-										</span>
-									</div>
-								</fieldset>
-							</form>
-
-							<div id="message-warning"> Error</div>
-							<div id="message-success">
-								<i className="fa fa-check"></i>Your message was sent, thank you!
-								<br />
-							</div>
-						</div>
-					</Slide>
-				</div>
-			</section>
-		);
-	}
-}
 export default Contact;

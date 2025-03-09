@@ -1,6 +1,20 @@
-jQuery(document).ready(function ($) {
-	var time = 380;
-	setTimeout(function () {
+// Wrap jQuery in IIFE to prevent conflicts and ensure $ is jQuery
+(function($) {
+	// Define throttle function inside the scope
+	function throttle(fn, delay) {
+		let lastCall = 0;
+		return function (...args) {
+			const now = new Date().getTime();
+			if (now - lastCall < delay) {
+				return;
+			}
+			lastCall = now;
+			return fn(...args);
+		};
+	}
+
+	// Use jQuery's ready method with explicit jQuery reference
+	jQuery(window).on('load', function() {
 		$("h1.responsive-headline").fitText(1, {
 			minFontSize: "40px",
 			maxFontSize: "90px",
@@ -46,12 +60,15 @@ jQuery(document).ready(function ($) {
 		});
 
 		$("header").css({ height: $(window).height() });
-		$(window).on("resize", function () {
+		
+		// Throttle resize handler
+		$(window).on("resize", throttle(function () {
 			$("header").css({ height: $(window).height() });
 			$("body").css({ width: $(window).width() });
-		});
+		}, 200)); // 200ms throttle
 
-		$(window).on("scroll", function () {
+		// Throttle scroll handler
+		$(window).on("scroll", throttle(function () {
 			var h = $("header").height();
 			var y = $(window).scrollTop();
 			var nav = $("#nav-wrap");
@@ -65,7 +82,7 @@ jQuery(document).ready(function ($) {
 					nav.addClass("opaque").fadeIn("fast");
 				}
 			}
-		});
+		}, 100)); // 100ms throttle
 
 		$(".flexslider").flexslider({
 			namespace: "flex-",
@@ -73,10 +90,11 @@ jQuery(document).ready(function ($) {
 			animation: "slide",
 			controlNav: true,
 			directionNav: false,
-			smoothHeight: true,
+			smoothHeight: false, // Changed from true to false
 			slideshowSpeed: 7000,
-			animationSpeed: 600,
+			animationSpeed: 300, // Reduced from 600 to 300
 			randomize: false,
+			pauseOnHover: true, // Added to prevent unnecessary animations
 		});
-	}, time);
-});
+	});
+})(jQuery); // Pass jQuery to IIFE to ensure $ refers to jQuery

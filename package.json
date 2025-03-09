@@ -6,6 +6,7 @@
 		"@testing-library/jest-dom": "^5.11.4",
 		"@testing-library/react": "^11.1.0",
 		"@testing-library/user-event": "^12.1.10",
+		"axios": "^1.8.2",
 		"css-purge": "^3.1.8",
 		"firebase": "^9.23.0",
 		"firebase-admin": "^11.11.1",
@@ -22,9 +23,12 @@
 	},
 	"scripts": {
 		"start": "react-scripts start",
-		"build": "react-scripts build",
+		"prebuild": "mkdir -p build/css && cp -r public/css/* build/css/",
+		"build": "react-scripts build && npm run optimize-css",
+		"optimize-css": "css-purge -i build/css/default.css,build/css/layout.css,build/css/media-queries.css,build/css/magnific-popup.css -o build/css/styles.min.css",
 		"test": "react-scripts test",
-		"eject": "react-scripts eject"
+		"eject": "react-scripts eject",
+		"deploy": "npm run build && firebase deploy"
 	},
 	"eslintConfig": {
 		"extends": [

@@ -563,6 +563,7 @@ ul#nav li.current a {
 }
 .flexslider .slides {
 	zoom: 1;
+	will-change: transform;
 }
 .flexslider .slides > li {
 	position: relative;
@@ -602,6 +603,20 @@ ul#nav li.current a {
 	display: inline-block;
 	zoom: 1;
 	display: inline;
+}
+.flex-control-nav li a {
+	width: 12px;
+	height: 12px;
+	display: block;
+	background: rgba(255, 255, 255, 0.3) 0;
+	cursor: pointer;
+	text-indent: -9999px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	-o-border-radius: 20px;
+	border-radius: 20px;
+	box-shadow: inset 0 0 3px rgba(255, 255, 255, 0.3);
+	will-change: background;
 }
 .flex-control-paging li a {
 	width: 12px;
@@ -854,4 +869,10 @@ footer .social-links li:first-child {
 }
 .github-btn {
 	background-color: #34495e !important;
+}
+header nav {
+	will-change: opacity, transform;
+}
+.smoothscroll {
+	will-change: transform;
 }
