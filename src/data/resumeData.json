@@ -141,37 +141,31 @@
 		"projects": [
 			{
 				"title": "Express Travel",
-				"category": "portfolio",
 				"image": "05.png",
 				"url": "https://expresstravelint.ca/"
 			},
 			{
 				"title": "Destinade",
-				"category": "portfolio",
 				"image": "04.png",
 				"url": "https://destinade.com/"
 			},
 			{
 				"title": "Barcin Music",
-				"category": "portfolio",
 				"image": "03.png",
 				"url": "https://barcin.web.app/"
 			},
 			{
 				"title": "Zero Apnea",
-				"category": "portfolio",
 				"image": "02.png",
 				"url": "https://zeroapnea.org/"
 			},
 			{
 				"title": "Resume I",
-				"category": "portfolio",
 				"image": "01.png",
 				"url": "https://rizasolak.web.app/"
 			},
 			{
 				"title": "Resume II",
-				"category": "portfolio",
 				"image": "06.png",
 				"url": "https://oksalberk.web.app/"
 			}

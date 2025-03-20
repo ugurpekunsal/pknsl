@@ -1,36 +1,93 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ian Pekünsal - Portfolio Website
+
+A modern, responsive portfolio website built with Next.js, React, and Tailwind CSS.
+
+## Features
+
+- Responsive design for all device sizes
+- Dark/light mode toggle
+- Interactive UI with animations using Framer Motion
+- Portfolio showcase
+- Working contact form
+- Resume/skills section
+- Fast performance with Next.js
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18.x or later
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/pknsl.git
+cd pknsl
+```
+
+2. Install dependencies
+
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Run the development server
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Setting Up the Contact Form
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The contact form uses [Resend](https://resend.com) to send emails. To set it up:
 
-## Learn More
+1. Sign up for a free Resend account at [resend.com](https://resend.com)
+2. Create an API key in the Resend dashboard
+3. Add your API key to the environment variables:
 
-To learn more about Next.js, take a look at the following resources:
+Create a `.env.local` file in the root of your project with the following variables:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+RESEND_API_KEY=re_xxxxxxxxxxxx
+EMAIL_FROM=your-verified-domain@example.com
+EMAIL_TO=your-email@example.com
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Notes:
 
-## Deploy on Vercel
+- For `EMAIL_FROM`, you need to use a domain you've verified with Resend, or use the default `onboarding@resend.dev` for testing
+- `EMAIL_TO` is where you'll receive contact form submissions
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Deploying to Vercel
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+When deploying to Vercel, add the environment variables in the Vercel dashboard:
+
+1. Go to your project in the Vercel dashboard
+2. Navigate to Settings > Environment Variables
+3. Add the same variables as above:
+   - `RESEND_API_KEY`
+   - `EMAIL_FROM`
+   - `EMAIL_TO`
+
+## Customizing Your Portfolio
+
+Most of the portfolio content can be modified in the `src/data/resumeData.json` file. Update this file with your own information to personalize the site.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- Theme design inspiration from various portfolio templates
+- Icons from [FontAwesome](https://fontawesome.com)
+- Background patterns and UI components custom designed
