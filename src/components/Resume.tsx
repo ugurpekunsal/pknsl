@@ -195,7 +195,7 @@ export default function Resume({ data }: ResumeProps) {
 				</div>
 
 				{/* Skills Section */}
-				<div ref={skillsRef}>
+				<div ref={skillsRef} className="mb-16">
 					<motion.h3
 						initial={{ opacity: 0, y: 20 }}
 						animate={
@@ -260,7 +260,7 @@ export default function Resume({ data }: ResumeProps) {
 					</div>
 				</div>
 
-				<div className="py-12 bg-white dark:bg-gray-800">
+				<div className="py-12 bg-white dark:bg-gray-800 rounded-lg shadow-md mt-8">
 					<div ref={certificationsRef} className="container mx-auto px-4">
 						<motion.h3
 							variants={itemVariants}
