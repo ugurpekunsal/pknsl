@@ -1,9 +1,29 @@
 "use client";
 import { useTheme } from "@/components/ThemeProvider";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function ThemeToggle() {
-	const { theme, setTheme } = useTheme();
+	const { activeTheme, setTheme } = useTheme();
+	const [mounted, setMounted] = useState(false);
+
+	// Only show the theme toggle after mounting to avoid hydration mismatch
+	useEffect(() => {
+		setMounted(true);
+	}, []);
+
+	if (!mounted) {
+		return null;
+	}
+
+	// Toggle between light and dark, preserving system preference if that was the original choice
+	const toggleTheme = () => {
+		if (activeTheme === "dark") {
+			setTheme("light");
+		} else {
+			setTheme("dark");
+		}
+	};
 
 	return (
 		<motion.button
@@ -11,10 +31,10 @@ export default function ThemeToggle() {
 			animate={{ opacity: 1 }}
 			transition={{ delay: 0.5 }}
 			className="relative p-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors duration-200"
-			onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+			onClick={toggleTheme}
 			aria-label="Toggle theme"
 		>
-			{theme === "dark" ? (
+			{activeTheme === "dark" ? (
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					fill="none"
