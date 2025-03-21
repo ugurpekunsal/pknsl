@@ -1,9 +1,20 @@
 "use client";
 import { useTheme } from "@/components/ThemeProvider";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function ThemeToggle() {
 	const { theme, setTheme } = useTheme();
+	const [mounted, setMounted] = useState(false);
+
+	// Only show the theme toggle after mounting to avoid hydration mismatch
+	useEffect(() => {
+		setMounted(true);
+	}, []);
+
+	if (!mounted) {
+		return null;
+	}
 
 	return (
 		<motion.button
