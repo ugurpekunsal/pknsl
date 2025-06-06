@@ -53,7 +53,9 @@ export default function Resume({ data }: ResumeProps) {
 
 		if (points.length <= 1) {
 			return (
-				<p className="text-gray-600 dark:text-gray-400 mt-2">{description}</p>
+				<p className="text-gray-600 dark:text-gray-400 mt-2">
+					{description}
+				</p>
 			);
 		}
 
@@ -199,7 +201,9 @@ export default function Resume({ data }: ResumeProps) {
 					<motion.h3
 						initial={{ opacity: 0, y: 20 }}
 						animate={
-							skillsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+							skillsInView
+								? { opacity: 1, y: 0 }
+								: { opacity: 0, y: 20 }
 						}
 						transition={{ duration: 0.6 }}
 						className="text-2xl font-bold mb-6 text-gray-800 dark:text-gray-200 flex items-center"
@@ -218,7 +222,7 @@ export default function Resume({ data }: ResumeProps) {
 								d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
 							/>
 						</svg>
-						Skills
+						Technical Skills
 					</motion.h3>
 
 					<motion.p
@@ -231,82 +235,336 @@ export default function Resume({ data }: ResumeProps) {
 					</motion.p>
 
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-						{data.skills.map((skill, index) => (
-							<motion.div
-								key={index}
-								initial={{ opacity: 0, y: 20 }}
-								animate={
-									skillsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-								}
-								transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-								className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-md"
-							>
-								<div className="flex justify-between items-center mb-2">
-									<h4 className="font-medium text-gray-800 dark:text-gray-200">
-										{skill.name}
-									</h4>
-									<span className="text-sm text-gray-600 dark:text-gray-400">
-										{skill.level}
+						{/* Cloud & Infrastructure */}
+						<motion.div
+							initial={{ opacity: 0, y: 20 }}
+							animate={
+								skillsInView
+									? { opacity: 1, y: 0 }
+									: { opacity: 0, y: 20 }
+							}
+							transition={{ duration: 0.5, delay: 0.3 }}
+							className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md"
+						>
+							<div className="flex items-center mb-4">
+								<svg
+									className="w-6 h-6 text-orange-500 mr-2"
+									fill="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path d="M18.75 8.25L12 13.5l-6.75-5.25v10.5h13.5V8.25z" />
+									<path d="M12 2.25L5.25 6.75h13.5L12 2.25z" />
+								</svg>
+								<h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200">
+									Cloud & Infrastructure
+								</h4>
+							</div>
+							<div className="flex flex-wrap gap-2">
+								{[
+									"AWS",
+									"EC2",
+									"Lambda",
+									"S3",
+									"CloudFormation",
+									"Docker",
+									"CI/CD",
+								].map((tech) => (
+									<span
+										key={tech}
+										className="px-3 py-1 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 rounded-full text-sm font-medium"
+									>
+										{tech}
 									</span>
-								</div>
-								<div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-									<div
-										className="bg-gradient-to-r from-primary to-secondary h-2.5 rounded-full"
-										style={{ width: skill.level }}
-									></div>
-								</div>
-							</motion.div>
-						))}
+								))}
+							</div>
+						</motion.div>
+
+						{/* Frontend Development */}
+						<motion.div
+							initial={{ opacity: 0, y: 20 }}
+							animate={
+								skillsInView
+									? { opacity: 1, y: 0 }
+									: { opacity: 0, y: 20 }
+							}
+							transition={{ duration: 0.5, delay: 0.4 }}
+							className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md"
+						>
+							<div className="flex items-center mb-4">
+								<svg
+									className="w-6 h-6 text-blue-500 mr-2"
+									fill="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z" />
+								</svg>
+								<h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200">
+									Frontend Development
+								</h4>
+							</div>
+							<div className="flex flex-wrap gap-2">
+								{[
+									"React",
+									"Next.js",
+									"TypeScript",
+									"JavaScript",
+									"Material-UI",
+									"Framer Motion",
+									"Tailwind CSS",
+									"HTML5",
+									"CSS3",
+								].map((tech) => (
+									<span
+										key={tech}
+										className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium"
+									>
+										{tech}
+									</span>
+								))}
+							</div>
+						</motion.div>
+
+						{/* Backend & APIs */}
+						<motion.div
+							initial={{ opacity: 0, y: 20 }}
+							animate={
+								skillsInView
+									? { opacity: 1, y: 0 }
+									: { opacity: 0, y: 20 }
+							}
+							transition={{ duration: 0.5, delay: 0.5 }}
+							className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md"
+						>
+							<div className="flex items-center mb-4">
+								<svg
+									className="w-6 h-6 text-green-500 mr-2"
+									fill="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
+									<path d="M12 6v6l4 2" />
+								</svg>
+								<h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200">
+									Backend & APIs
+								</h4>
+							</div>
+							<div className="flex flex-wrap gap-2">
+								{[
+									"Node.js",
+									"Express",
+									"REST APIs",
+									"GraphQL",
+									"MongoDB",
+									"PostgreSQL",
+									"Redis",
+									"Microservices",
+								].map((tech) => (
+									<span
+										key={tech}
+										className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm font-medium"
+									>
+										{tech}
+									</span>
+								))}
+							</div>
+						</motion.div>
+
+						{/* AI & Machine Learning */}
+						<motion.div
+							initial={{ opacity: 0, y: 20 }}
+							animate={
+								skillsInView
+									? { opacity: 1, y: 0 }
+									: { opacity: 0, y: 20 }
+							}
+							transition={{ duration: 0.5, delay: 0.6 }}
+							className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md"
+						>
+							<div className="flex items-center mb-4">
+								<svg
+									className="w-6 h-6 text-purple-500 mr-2"
+									fill="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+								</svg>
+								<h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200">
+									AI & Machine Learning
+								</h4>
+							</div>
+							<div className="flex flex-wrap gap-2">
+								{[
+									"OpenAI API",
+									"AssemblyAI",
+									"Microsoft Cognitive Services",
+									"Natural Language Processing",
+									"Speech Recognition",
+									"Python",
+									"TensorFlow",
+								].map((tech) => (
+									<span
+										key={tech}
+										className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm font-medium"
+									>
+										{tech}
+									</span>
+								))}
+							</div>
+						</motion.div>
+
+						{/* Desktop & Mobile Development */}
+						<motion.div
+							initial={{ opacity: 0, y: 20 }}
+							animate={
+								skillsInView
+									? { opacity: 1, y: 0 }
+									: { opacity: 0, y: 20 }
+							}
+							transition={{ duration: 0.5, delay: 0.7 }}
+							className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md"
+						>
+							<div className="flex items-center mb-4">
+								<svg
+									className="w-6 h-6 text-indigo-500 mr-2"
+									fill="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" />
+								</svg>
+								<h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200">
+									Desktop & Mobile
+								</h4>
+							</div>
+							<div className="flex flex-wrap gap-2">
+								{[
+									"Electron",
+									"React Native",
+									"Flutter",
+									"PWA",
+									"Cordova",
+									"Ionic",
+									"Cross-platform Development",
+								].map((tech) => (
+									<span
+										key={tech}
+										className="px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 rounded-full text-sm font-medium"
+									>
+										{tech}
+									</span>
+								))}
+							</div>
+						</motion.div>
+
+						{/* Development Tools */}
+						<motion.div
+							initial={{ opacity: 0, y: 20 }}
+							animate={
+								skillsInView
+									? { opacity: 1, y: 0 }
+									: { opacity: 0, y: 20 }
+							}
+							transition={{ duration: 0.5, delay: 0.8 }}
+							className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md"
+						>
+							<div className="flex items-center mb-4">
+								<svg
+									className="w-6 h-6 text-gray-500 mr-2"
+									fill="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z" />
+								</svg>
+								<h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200">
+									Development Tools
+								</h4>
+							</div>
+							<div className="flex flex-wrap gap-2">
+								{[
+									"Git",
+									"GitHub",
+									"VS Code",
+									"Vite",
+									"Webpack",
+									"ESLint",
+									"Prettier",
+									"Jest",
+									"Playwright",
+									"Postman",
+								].map((tech) => (
+									<span
+										key={tech}
+										className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full text-sm font-medium"
+									>
+										{tech}
+									</span>
+								))}
+							</div>
+						</motion.div>
 					</div>
 				</div>
 
 				<div className="py-12 bg-white dark:bg-gray-800 rounded-lg shadow-md mt-8">
-					<div ref={certificationsRef} className="container mx-auto px-4">
+					<div
+						ref={certificationsRef}
+						className="container mx-auto px-4"
+					>
 						<motion.h3
 							variants={itemVariants}
 							initial="hidden"
-							animate={certificationsInView ? "visible" : "hidden"}
+							animate={
+								certificationsInView ? "visible" : "hidden"
+							}
 							className="text-2xl font-bold mb-8 text-center text-gray-800 dark:text-gray-200"
 						>
 							Certifications
 						</motion.h3>
 
 						<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-							{data.certifications?.map((certification, index) => (
-								<motion.div
-									key={index}
-									variants={itemVariants}
-									initial="hidden"
-									animate={certificationsInView ? "visible" : "hidden"}
-									className="bg-gray-50 dark:bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-								>
-									<div className="flex items-start">
-										<div className="mr-4">
-											{certification.issuer === "Scrum Alliance" ? (
-												<i className="fas fa-users-cog text-2xl text-primary"></i>
-											) : certification.issuer === "Microsoft" ? (
-												<i className="fab fa-microsoft text-2xl text-primary"></i>
-											) : (
-												<i className="fas fa-certificate text-2xl text-primary"></i>
-											)}
+							{data.certifications?.map(
+								(certification, index) => (
+									<motion.div
+										key={index}
+										variants={itemVariants}
+										initial="hidden"
+										animate={
+											certificationsInView
+												? "visible"
+												: "hidden"
+										}
+										className="bg-gray-50 dark:bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+									>
+										<div className="flex items-start">
+											<div className="mr-4">
+												{certification.issuer ===
+												"Scrum Alliance" ? (
+													<i className="fas fa-users-cog text-2xl text-primary"></i>
+												) : certification.issuer ===
+												  "Microsoft" ? (
+													<i className="fab fa-microsoft text-2xl text-primary"></i>
+												) : (
+													<i className="fas fa-certificate text-2xl text-primary"></i>
+												)}
+											</div>
+											<div>
+												<h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200">
+													{certification.title}
+												</h4>
+												<p className="text-gray-600 dark:text-gray-400 mb-2">
+													Issued by:{" "}
+													{certification.issuer}
+												</p>
+												<p className="text-gray-600 dark:text-gray-400 text-sm mb-3">
+													Credential ID:{" "}
+													{certification.credentialId}
+												</p>
+												<p className="text-gray-700 dark:text-gray-300">
+													{certification.description}
+												</p>
+											</div>
 										</div>
-										<div>
-											<h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200">
-												{certification.title}
-											</h4>
-											<p className="text-gray-600 dark:text-gray-400 mb-2">
-												Issued by: {certification.issuer}
-											</p>
-											<p className="text-gray-600 dark:text-gray-400 text-sm mb-3">
-												Credential ID: {certification.credentialId}
-											</p>
-											<p className="text-gray-700 dark:text-gray-300">
-												{certification.description}
-											</p>
-										</div>
-									</div>
-								</motion.div>
-							))}
+									</motion.div>
+								)
+							)}
 						</div>
 					</div>
 				</div>

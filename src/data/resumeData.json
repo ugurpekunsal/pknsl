@@ -72,9 +72,9 @@
 				"description": "Integrate Microsoft Dynamics CRM with CMS systems.\nDevelop the front end according to wireframes and user stories.\nApply performance fixes to reduce loading times and decrease Azure operating costs."
 			},
 			{
-				"company": "Destinade Travel Tech Solutions Ltd.",
+				"company": "Destinade Tech Solutions Ltd.",
 				"title": "Freelance Web Developer",
-				"years": "2020 - 2022",
+				"years": "2020 - present",
 				"description": "Develop and maintain travel management software.\nImplement new features, test, and debug the software."
 			},
 			{
@@ -88,36 +88,6 @@
 				"title": "Brand Ambassador",
 				"years": "2017 - 2018",
 				"description": "Educated customers of various Muskoka and Beau's products via one-on-one interaction.\nSubmitted detailed, accurate reports for inventory, payroll hours, and material used."
-			}
-		],
-		"skills": [
-			{
-				"name": "Javascript",
-				"level": "90%"
-			},
-			{
-				"name": "JQuery",
-				"level": "80%"
-			},
-			{
-				"name": "React",
-				"level": "70%"
-			},
-			{
-				"name": "C#",
-				"level": "90%"
-			},
-			{
-				"name": "Razor",
-				"level": "80%"
-			},
-			{
-				"name": "Java",
-				"level": "60%"
-			},
-			{
-				"name": "Python",
-				"level": "50%"
 			}
 		],
 		"certifications": [
@@ -152,7 +122,7 @@
 			{
 				"title": "Barcin Music",
 				"image": "03.png",
-				"url": "https://barcin.web.app/"
+				"url": "https://barcinmusic.com/"
 			},
 			{
 				"title": "Zero Apnea",
@@ -160,14 +130,9 @@
 				"url": "https://zeroapnea.org/"
 			},
 			{
-				"title": "Resume I",
+				"title": "VibeFit",
 				"image": "01.png",
-				"url": "https://rizasolak.web.app/"
-			},
-			{
-				"title": "Resume II",
-				"image": "06.png",
-				"url": "https://oksalberk.web.app/"
+				"url": "https://vibefit.ca/"
 			}
 		]
 	}
