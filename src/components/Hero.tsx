@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import type { Main } from "@/types";
 
 interface HeroProps {
@@ -31,9 +30,9 @@ export default function Hero({ data }: HeroProps) {
 			</div>
 
 			<div className="container mx-auto px-4 z-10">
-				<div className="flex flex-col items-center gap-8 md:flex-row md:justify-between">
+				<div className="flex flex-col items-center">
 					<motion.div
-						className="text-center md:text-left md:w-1/2"
+						className="text-center"
 						initial={{ opacity: 0, x: -50 }}
 						animate={{ opacity: 1, x: 0 }}
 						transition={{ duration: 0.8, delay: 0.2 }}
@@ -44,7 +43,7 @@ export default function Hero({ data }: HeroProps) {
 						<h2 className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-6">
 							{data.description}
 						</h2>
-						<div className="flex justify-center md:justify-start space-x-4">
+						<div className="flex justify-center space-x-4">
 							{data.social.map((social, index) => (
 								<motion.a
 									key={index}
@@ -58,24 +57,6 @@ export default function Hero({ data }: HeroProps) {
 									<i className={social.className}></i>
 								</motion.a>
 							))}
-						</div>
-					</motion.div>
-
-					<motion.div
-						className="relative w-64 h-64 md:w-96 md:h-96"
-						initial={{ opacity: 0, scale: 0.8 }}
-						animate={{ opacity: 1, scale: 1 }}
-						transition={{ duration: 0.8, delay: 0.4 }}
-					>
-						<div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-secondary blur-lg opacity-50 animate-pulse" />
-						<div className="relative overflow-hidden rounded-full h-full w-full border-4 border-white dark:border-gray-800">
-							<Image
-								src={`/images/${data.image}`}
-								alt={data.name}
-								fill
-								style={{ objectFit: "cover" }}
-								priority
-							/>
 						</div>
 					</motion.div>
 				</div>
