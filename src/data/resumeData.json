@@ -61,9 +61,15 @@
 		"work": [
 			{
 				"company": "Nelson",
-				"title": "Web Developer",
-				"years": "2025 - Present",
-				"description": "Develop and maintain web applications using JavaScript (ES6+), HTML, CSS, and modern frameworks such as React.\nBuild and integrate front-end and back-end functionality using Node.js, version control with Git, and cloud platforms including AWS, Azure, or GCP.\nCollaborate with cross-functional teams to gather requirements, iterate on features, and deliver scalable, user-focused solutions."
+				"title": "Full Stack Developer - Product",
+				"years": "2026 - Present",
+				"description": "Develop and maintain microservices using Go, Protobuf, and MongoDB within an AWS environment.\nBuild front-end features using React, Redux-Saga, and GraphQL (Apollo).\nUtilize Docker and Istio for service orchestration and Kibana for system monitoring.\nCollaborate with the product team to transition core content features into scalable engineering solutions."
+			},
+			{
+				"company": "Nelson",
+				"title": "Web Developer - R&D",
+				"years": "2025 - 2026",
+				"description": "Develop and maintain web applications using JavaScript (ES6+), HTML, CSS, and modern frameworks such as React.\nBuild and integrate front-end and back-end functionality using Node.js, version control with Git, and cloud platforms including AWS (infrastructure), Azure (neural speech), and GCP (Firebase).\nCollaborate with cross-functional teams to gather requirements, iterate on features, and deliver scalable, user-focused solutions."
 			},
 			{
 				"company": "Nelson",

@@ -267,6 +267,8 @@ export default function Resume({ data }: ResumeProps) {
 									"S3",
 									"CloudFormation",
 									"Docker",
+									"Istio",
+									"Kibana",
 									"CI/CD",
 								].map((tech) => (
 									<span
@@ -306,13 +308,14 @@ export default function Resume({ data }: ResumeProps) {
 								{[
 									"React",
 									"Next.js",
+									"Redux-Saga",
 									"TypeScript",
 									"JavaScript",
-									"Material-UI",
-									"Framer Motion",
-									"Tailwind CSS",
 									"HTML5",
 									"CSS3",
+									"SASS/SCSS",
+									"Material-UI",
+									"Tailwind CSS",
 								].map((tech) => (
 									<span
 										key={tech}
@@ -351,11 +354,14 @@ export default function Resume({ data }: ResumeProps) {
 							<div className="flex flex-wrap gap-2">
 								{[
 									"Node.js",
+									"Go (Golang)",
+									"Protobuf",
 									"Express",
 									"REST APIs",
-									"GraphQL",
+									"GraphQL (Apollo)",
 									"MongoDB",
 									"PostgreSQL",
+									"MySQL",
 									"Redis",
 									"Microservices",
 								].map((tech) => (
@@ -395,59 +401,17 @@ export default function Resume({ data }: ResumeProps) {
 							<div className="flex flex-wrap gap-2">
 								{[
 									"OpenAI API",
-									"AssemblyAI",
+									"Google Cloud Vision",
+									"Azure Neural Speech",
+									"Firebase",
 									"Microsoft Cognitive Services",
-									"Natural Language Processing",
-									"Speech Recognition",
+									"NLP",
 									"Python",
 									"TensorFlow",
 								].map((tech) => (
 									<span
 										key={tech}
 										className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm font-medium"
-									>
-										{tech}
-									</span>
-								))}
-							</div>
-						</motion.div>
-
-						{/* Desktop & Mobile Development */}
-						<motion.div
-							initial={{ opacity: 0, y: 20 }}
-							animate={
-								skillsInView
-									? { opacity: 1, y: 0 }
-									: { opacity: 0, y: 20 }
-							}
-							transition={{ duration: 0.5, delay: 0.7 }}
-							className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md"
-						>
-							<div className="flex items-center mb-4">
-								<svg
-									className="w-6 h-6 text-indigo-500 mr-2"
-									fill="currentColor"
-									viewBox="0 0 24 24"
-								>
-									<path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" />
-								</svg>
-								<h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200">
-									Desktop & Mobile
-								</h4>
-							</div>
-							<div className="flex flex-wrap gap-2">
-								{[
-									"Electron",
-									"React Native",
-									"Flutter",
-									"PWA",
-									"Cordova",
-									"Ionic",
-									"Cross-platform Development",
-								].map((tech) => (
-									<span
-										key={tech}
-										className="px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 rounded-full text-sm font-medium"
 									>
 										{tech}
 									</span>
@@ -475,7 +439,7 @@ export default function Resume({ data }: ResumeProps) {
 									<path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z" />
 								</svg>
 								<h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200">
-									Development Tools
+									Tools & Methodologies
 								</h4>
 							</div>
 							<div className="flex flex-wrap gap-2">
@@ -483,13 +447,11 @@ export default function Resume({ data }: ResumeProps) {
 									"Git",
 									"GitHub",
 									"VS Code",
-									"Vite",
-									"Webpack",
-									"ESLint",
-									"Prettier",
 									"Jest",
 									"Playwright",
-									"Postman",
+									"Agile",
+									"Scrum",
+									"Code Review",
 								].map((tech) => (
 									<span
 										key={tech}
