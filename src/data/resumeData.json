@@ -61,8 +61,20 @@
 		"work": [
 			{
 				"company": "Nelson",
+				"title": "Full Stack Developer - Product",
+				"years": "2026 - Present",
+				"description": "Develop and maintain microservices using Go, Protobuf, and MongoDB within an AWS environment.\nBuild front-end features using React, Redux-Saga, and GraphQL (Apollo).\nUtilize Docker and Istio for service orchestration and Kibana for system monitoring.\nCollaborate with the product team to transition core content features into scalable engineering solutions."
+			},
+			{
+				"company": "Nelson",
+				"title": "Web Developer - R&D",
+				"years": "2025 - 2026",
+				"description": "Develop and maintain web applications using JavaScript (ES6+), HTML, CSS, and modern frameworks such as React.\nBuild and integrate front-end and back-end functionality using Node.js, version control with Git, and cloud platforms including AWS (infrastructure), Azure (neural speech), and GCP (Firebase).\nCollaborate with cross-functional teams to gather requirements, iterate on features, and deliver scalable, user-focused solutions."
+			},
+			{
+				"company": "Nelson",
 				"title": "Digital Content Developer",
-				"years": "2024 - Present",
+				"years": "2024 - 2025",
 				"description": "Develop engaging Digital Content and multimedia using HTML, JavaScript, and other relevant technologies.\nCollaborate with SMEs and project managers to gather requirements and ensure content meets the desired objectives.\nCollaborate with cross-functional teams to gather feedback, make improvements, and iterate content based on user needs."
 			},
 			{
@@ -128,11 +140,6 @@
 				"title": "Zero Apnea",
 				"image": "02.png",
 				"url": "https://zeroapnea.org/"
-			},
-			{
-				"title": "VibeFit",
-				"image": "01.png",
-				"url": "https://vibefit.ca/"
 			}
 		]
 	}
