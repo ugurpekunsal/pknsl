@@ -85,8 +85,73 @@ function GooglyEye({ size = 64 }: { size?: number }) {
 	);
 }
 
+const ANSWER = "rileygemma";
+
+function PasswordGate({ onUnlock }: { onUnlock: () => void }) {
+	const [value, setValue] = useState("");
+	const [wrong, setWrong] = useState(false);
+
+	const handleSubmit = (e: React.FormEvent) => {
+		e.preventDefault();
+		const normalized = value.toLowerCase().replace(/\s+/g, "");
+		if (normalized === ANSWER) {
+			onUnlock();
+		} else {
+			setWrong(true);
+		}
+	};
+
+	return (
+		<div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-rose-50 via-pink-50 to-violet-100 px-6 dark:from-gray-900 dark:via-rose-950/40 dark:to-violet-950/40">
+			<motion.form
+				onSubmit={handleSubmit}
+				className="w-full max-w-md rounded-3xl border border-white/60 bg-white/70 p-8 text-center shadow-lg backdrop-blur dark:border-white/10 dark:bg-white/5"
+				initial={{ opacity: 0, y: 20 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.6 }}
+			>
+				<div className="mb-4 text-4xl">🔒🐤</div>
+				<h1 className="mb-2 text-2xl font-bold text-gray-900 dark:text-gray-100">
+					prove it's you
+				</h1>
+				<p className="mb-6 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+					name the dog you keep correcting me about and your cat.
+					one word, no spaces, all lowercase.
+				</p>
+				<input
+					type="password"
+					value={value}
+					onChange={(e) => {
+						setValue(e.target.value);
+						setWrong(false);
+					}}
+					autoFocus
+					placeholder="answer"
+					className="w-full rounded-full border border-rose-200 bg-white/80 px-5 py-3 text-center text-gray-900 outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-300 dark:border-white/10 dark:bg-white/10 dark:text-gray-100"
+				/>
+				{wrong && (
+					<p className="mt-3 text-sm text-rose-500">
+						nope. it&rsquo;s not her dog, but you know the answer 😉
+					</p>
+				)}
+				<button
+					type="submit"
+					className="mt-6 w-full rounded-full bg-gradient-to-r from-rose-500 to-violet-500 px-8 py-3 text-lg font-semibold text-white shadow-lg shadow-rose-500/30 transition hover:scale-105"
+				>
+					unlock
+				</button>
+			</motion.form>
+		</div>
+	);
+}
+
 export default function SecretPage() {
 	const [opened, setOpened] = useState(false);
+	const [unlocked, setUnlocked] = useState(false);
+
+	if (!unlocked) {
+		return <PasswordGate onUnlock={() => setUnlocked(true)} />;
+	}
 
 	return (
 		<div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-rose-50 via-pink-50 to-violet-100 dark:from-gray-900 dark:via-rose-950/40 dark:to-violet-950/40">
