@@ -67,13 +67,17 @@ Notes:
 - For `EMAIL_FROM`, you need to use a domain you've verified with Resend, or use the default `onboarding@resend.dev` for testing
 - `EMAIL_TO` is where you'll receive contact form submissions
 
-### Deploying to Vercel
+### Deploying to the Douglas server
 
-When deploying to Vercel, add the environment variables in the Vercel dashboard:
+The production site runs as a standalone Next.js Docker container. Keep the
+environment variables in `~/stacks/pknsl/.env`, then build and deploy with:
 
-1. Go to your project in the Vercel dashboard
-2. Navigate to Settings > Environment Variables
-3. Add the same variables as above:
+```bash
+docker compose -p pknsl -f ~/stacks/pknsl/docker-compose.yml build site
+docker compose -p pknsl -f ~/stacks/pknsl/docker-compose.yml up -d site
+```
+
+The required runtime variables are:
    - `RESEND_API_KEY`
    - `EMAIL_FROM`
    - `EMAIL_TO`

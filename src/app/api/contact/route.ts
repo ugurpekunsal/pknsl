@@ -1,10 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-// Initialize Resend with your API key
-// You'll need to add your Resend API key to your environment variables in Vercel
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request: Request) {
 	try {
 		const formData = await request.json();
@@ -30,6 +26,7 @@ export async function POST(request: Request) {
 		// Only actually send email if RESEND_API_KEY is defined
 		// This makes it safe to test locally without an API key
 		if (process.env.RESEND_API_KEY) {
+			const resend = new Resend(process.env.RESEND_API_KEY);
 			const { data, error } = await resend.emails.send({
 				from: `Contact Form <${
 					process.env.EMAIL_FROM || "onboarding@resend.dev"
