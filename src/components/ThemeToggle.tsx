@@ -1,70 +1,34 @@
 "use client";
-import { useTheme } from "@/components/ThemeProvider";
-import { motion } from "framer-motion";
+
 import { useEffect, useState } from "react";
+import { useTheme } from "@/components/ThemeProvider";
 
 export default function ThemeToggle() {
 	const { activeTheme, setTheme } = useTheme();
 	const [mounted, setMounted] = useState(false);
 
-	// Only show the theme toggle after mounting to avoid hydration mismatch
-	useEffect(() => {
-		setMounted(true);
-	}, []);
+	useEffect(() => setMounted(true), []);
 
-	if (!mounted) {
-		return null;
-	}
-
-	// Toggle between light and dark, preserving system preference if that was the original choice
-	const toggleTheme = () => {
-		if (activeTheme === "dark") {
-			setTheme("light");
-		} else {
-			setTheme("dark");
-		}
-	};
+	const nextTheme = activeTheme === "dark" ? "light" : "dark";
 
 	return (
-		<motion.button
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
-			transition={{ delay: 0.5 }}
-			className="relative p-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors duration-200"
-			onClick={toggleTheme}
-			aria-label="Toggle theme"
+		<button
+			type="button"
+			className="theme-toggle"
+			onClick={() => setTheme(nextTheme)}
+			aria-label={mounted ? `Switch to ${nextTheme} theme` : "Toggle theme"}
+			title={mounted ? `Switch to ${nextTheme} theme` : "Toggle theme"}
 		>
-			{activeTheme === "dark" ? (
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					fill="none"
-					viewBox="0 0 24 24"
-					strokeWidth={1.5}
-					stroke="currentColor"
-					className="w-6 h-6"
-				>
-					<path
-						strokeLinecap="round"
-						strokeLinejoin="round"
-						d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
-					/>
+			{mounted && activeTheme === "dark" ? (
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+					<circle cx="12" cy="12" r="3.5" />
+					<path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41" />
 				</svg>
 			) : (
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					fill="none"
-					viewBox="0 0 24 24"
-					strokeWidth={1.5}
-					stroke="currentColor"
-					className="w-6 h-6"
-				>
-					<path
-						strokeLinecap="round"
-						strokeLinejoin="round"
-						d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
-					/>
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+					<path d="M20.3 15.2A8.5 8.5 0 0 1 8.8 3.7 8.5 8.5 0 1 0 20.3 15.2Z" />
 				</svg>
 			)}
-		</motion.button>
+		</button>
 	);
 }

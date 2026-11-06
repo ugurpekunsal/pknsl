@@ -1,133 +1,119 @@
 "use client";
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
+
+import { useEffect, useState } from "react";
 import ThemeToggle from "./ThemeToggle";
+
+const navItems = [
+	{ name: "Work", href: "#work", id: "work" },
+	{ name: "About", href: "#about", id: "about" },
+	{ name: "Skills", href: "#skills", id: "skills" },
+	{ name: "Experience", href: "#experience", id: "experience" },
+	{ name: "Contact", href: "#contact", id: "contact" },
+];
 
 export default function Navigation() {
 	const [isScrolled, setIsScrolled] = useState(false);
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+	const [activeSection, setActiveSection] = useState("home");
 
 	useEffect(() => {
-		const handleScroll = () => {
-			setIsScrolled(window.scrollY > 50);
-		};
-
-		window.addEventListener("scroll", handleScroll);
+		const handleScroll = () => setIsScrolled(window.scrollY > 24);
+		handleScroll();
+		window.addEventListener("scroll", handleScroll, { passive: true });
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
 
-	const navItems = [
-		{ name: "Home", href: "#home" },
-		{ name: "About", href: "#about" },
-		{ name: "Resume", href: "#resume" },
-		{ name: "Portfolio", href: "#portfolio" },
-		{ name: "Contact", href: "#contact" },
-	];
+	useEffect(() => {
+		const sections = ["home", ...navItems.map((item) => item.id)]
+			.map((id) => document.getElementById(id))
+			.filter((section): section is HTMLElement => Boolean(section));
+		const observer = new IntersectionObserver(
+			(entries) => {
+				const visible = entries
+					.filter((entry) => entry.isIntersecting)
+					.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+				if (visible[0]) setActiveSection(visible[0].target.id);
+			},
+			{ rootMargin: "-18% 0px -60% 0px", threshold: [0, 0.1, 0.4] },
+		);
+		sections.forEach((section) => observer.observe(section));
+		return () => observer.disconnect();
+	}, []);
+
+	useEffect(() => {
+		document.body.style.overflow = isMobileMenuOpen ? "hidden" : "";
+		const handleKeyDown = (event: KeyboardEvent) => {
+			if (event.key === "Escape") setIsMobileMenuOpen(false);
+		};
+		window.addEventListener("keydown", handleKeyDown);
+		return () => {
+			document.body.style.overflow = "";
+			window.removeEventListener("keydown", handleKeyDown);
+		};
+	}, [isMobileMenuOpen]);
 
 	return (
-		<>
-			<motion.nav
-				className={`fixed top-0 left-0 right-0 z-40 px-4 py-3 transition-all duration-300 ${
-					isScrolled
-						? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-md"
-						: "bg-transparent"
-				}`}
-				initial={{ y: -100 }}
-				animate={{ y: 0 }}
-				transition={{ duration: 0.6 }}
-			>
-				<div className="container mx-auto flex justify-between items-center">
-					<Link
-						href="#home"
-						className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary"
-					>
-						Ian Pekünsal
-					</Link>
+		<header className={`site-header${isScrolled ? " is-scrolled" : ""}`}>
+			<div className="shell site-header__inner">
+				<a
+					href="#home"
+					className="brand"
+					aria-label="Ian Pekünsal — back to top"
+					onClick={() => setIsMobileMenuOpen(false)}
+				>
+					<span className="brand__mark" aria-hidden="true">P/</span>
+					<span>pknsl</span>
+				</a>
 
-					{/* Desktop Navigation */}
-					<div className="hidden md:flex items-center space-x-6">
-						{navItems.map((item) => (
-							<Link
-								key={item.name}
-								href={item.href}
-								className="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors duration-300"
-							>
-								{item.name}
-							</Link>
-						))}
-						<ThemeToggle />
-					</div>
-
-					{/* Mobile Navigation */}
-					<div className="flex items-center md:hidden space-x-2">
-						<ThemeToggle />
-						<button
-							className="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800"
-							onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-							aria-label="Toggle menu"
+				<nav className="desktop-nav" aria-label="Primary navigation">
+					{navItems.map((item) => (
+						<a
+							key={item.name}
+							href={item.href}
+							className={activeSection === item.id ? "is-active" : ""}
+							aria-current={activeSection === item.id ? "location" : undefined}
 						>
-							{isMobileMenuOpen ? (
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 24 24"
-									strokeWidth={1.5}
-									stroke="currentColor"
-									className="w-6 h-6"
-								>
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										d="M6 18L18 6M6 6l12 12"
-									/>
-								</svg>
-							) : (
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 24 24"
-									strokeWidth={1.5}
-									stroke="currentColor"
-									className="w-6 h-6"
-								>
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-									/>
-								</svg>
-							)}
-						</button>
-					</div>
-				</div>
-			</motion.nav>
+							{item.name}
+						</a>
+					))}
+				</nav>
 
-			{/* Mobile Navigation Menu */}
-			<AnimatePresence>
-				{isMobileMenuOpen && (
-					<motion.div
-						className="fixed inset-0 z-30 bg-white/95 dark:bg-gray-900/95 pt-20 px-4"
-						initial={{ opacity: 0, y: -50 }}
-						animate={{ opacity: 1, y: 0 }}
-						exit={{ opacity: 0, y: -50 }}
-						transition={{ duration: 0.3 }}
+				<div className="site-header__actions">
+					<ThemeToggle />
+					<button
+						type="button"
+						className="menu-toggle"
+						onClick={() => setIsMobileMenuOpen((open) => !open)}
+						aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+						aria-expanded={isMobileMenuOpen}
+						aria-controls="mobile-navigation"
 					>
-						<div className="flex flex-col space-y-4">
-							{navItems.map((item) => (
-								<Link
-									key={item.name}
-									href={item.href}
-									className="text-lg py-3 border-b border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300"
-									onClick={() => setIsMobileMenuOpen(false)}
-								>
-									{item.name}
-								</Link>
-							))}
-						</div>
-					</motion.div>
-				)}
-			</AnimatePresence>
-		</>
+						<span className={isMobileMenuOpen ? "is-open" : ""} aria-hidden="true" />
+					</button>
+				</div>
+			</div>
+
+			<nav
+				id="mobile-navigation"
+				className={`mobile-nav${isMobileMenuOpen ? " is-open" : ""}`}
+				aria-label="Mobile navigation"
+				aria-hidden={!isMobileMenuOpen}
+			>
+				<div className="shell mobile-nav__inner">
+					{navItems.map((item, index) => (
+						<a
+							key={item.name}
+							href={item.href}
+							onClick={() => setIsMobileMenuOpen(false)}
+							tabIndex={isMobileMenuOpen ? 0 : -1}
+						>
+							<span>0{index + 1}</span>
+							{item.name}
+						</a>
+					))}
+					<p>Toronto, Canada · Available online</p>
+				</div>
+			</nav>
+		</header>
 	);
 }

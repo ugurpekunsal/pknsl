@@ -39,11 +39,6 @@ export interface Work {
 	description: string;
 }
 
-export interface Skill {
-	name: string;
-	level: string;
-}
-
 export interface Certification {
 	title: string;
 	issuer: string;
@@ -56,7 +51,6 @@ export interface Resume {
 	skillmessage: string;
 	education: Education[];
 	work: Work[];
-	skills: Skill[];
 	certifications: Certification[];
 }
 

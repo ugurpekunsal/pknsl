@@ -1,4 +1,5 @@
 "use client";
+
 import { createContext, useContext, useEffect, useState } from "react";
 
 type Theme = "dark" | "light" | "system";
@@ -12,57 +13,51 @@ type ThemeProviderProps = {
 
 type ThemeProviderState = {
 	theme: Theme;
-	activeTheme: ActiveTheme; // The actual applied theme (light or dark)
+	activeTheme: ActiveTheme;
 	setTheme: (theme: Theme) => void;
 };
 
 const ThemeProviderContext = createContext<ThemeProviderState | undefined>(
-	undefined
+	undefined,
 );
 
 export function ThemeProvider({
 	children,
 	defaultTheme = "system",
 	enableSystem = true,
-	...props
 }: ThemeProviderProps) {
-	const [theme, setTheme] = useState<Theme>(defaultTheme);
-	const [activeTheme, setActiveTheme] = useState<ActiveTheme>("dark"); // Default until hydrated
+	const [theme, setThemeState] = useState<Theme>(defaultTheme);
+	const [activeTheme, setActiveTheme] = useState<ActiveTheme>("light");
 
-	// Update the active theme when the theme changes or on initial load
+	useEffect(() => {
+		const savedTheme = window.localStorage.getItem("pknsl-theme") as Theme | null;
+		if (savedTheme === "light" || savedTheme === "dark") {
+			setThemeState(savedTheme);
+		}
+	}, []);
+
 	useEffect(() => {
 		const root = window.document.documentElement;
+		const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+			? "dark"
+			: "light";
+		const nextTheme: ActiveTheme = theme === "system" ? systemTheme : theme;
+
 		root.classList.remove("light", "dark");
-
-		let newActiveTheme: ActiveTheme = theme as ActiveTheme;
-
-		if (theme === "system" && enableSystem) {
-			const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-				.matches
-				? "dark"
-				: "light";
-			root.classList.add(systemTheme);
-			newActiveTheme = systemTheme;
-		} else {
-			root.classList.add(theme);
-			newActiveTheme = theme as ActiveTheme;
-		}
-
-		setActiveTheme(newActiveTheme);
+		root.classList.add(nextTheme);
+		root.style.colorScheme = nextTheme;
+		setActiveTheme(nextTheme);
 	}, [theme, enableSystem]);
 
-	// Listen for system preference changes
 	useEffect(() => {
 		if (!enableSystem || theme !== "system") return;
 
 		const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-
-		const updateSystemTheme = (e: MediaQueryListEvent) => {
-			const root = window.document.documentElement;
-			const systemTheme = e.matches ? "dark" : "light";
-
-			root.classList.remove("light", "dark");
-			root.classList.add(systemTheme);
+		const updateSystemTheme = (event: MediaQueryListEvent) => {
+			const systemTheme = event.matches ? "dark" : "light";
+			document.documentElement.classList.remove("light", "dark");
+			document.documentElement.classList.add(systemTheme);
+			document.documentElement.style.colorScheme = systemTheme;
 			setActiveTheme(systemTheme);
 		};
 
@@ -70,14 +65,13 @@ export function ThemeProvider({
 		return () => mediaQuery.removeEventListener("change", updateSystemTheme);
 	}, [enableSystem, theme]);
 
-	const value = {
-		theme,
-		activeTheme,
-		setTheme: (theme: Theme) => setTheme(theme),
+	const setTheme = (nextTheme: Theme) => {
+		window.localStorage.setItem("pknsl-theme", nextTheme);
+		setThemeState(nextTheme);
 	};
 
 	return (
-		<ThemeProviderContext.Provider {...props} value={value}>
+		<ThemeProviderContext.Provider value={{ theme, activeTheme, setTheme }}>
 			{children}
 		</ThemeProviderContext.Provider>
 	);

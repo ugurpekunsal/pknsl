@@ -123,21 +123,25 @@
 		"projects": [
 			{
 				"title": "Express Travel",
+				"category": "Travel & tourism",
 				"image": "05.png",
 				"url": "https://expresstravelint.ca/"
 			},
 			{
 				"title": "Destinade",
+				"category": "Travel technology",
 				"image": "04.png",
 				"url": "https://destinade.com/"
 			},
 			{
 				"title": "Barcin Music",
+				"category": "Music & culture",
 				"image": "03.png",
 				"url": "https://barcinmusic.com/"
 			},
 			{
 				"title": "Zero Apnea",
+				"category": "Health & wellness",
 				"image": "02.png",
 				"url": "https://zeroapnea.org/"
 			}

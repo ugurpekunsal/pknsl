@@ -6,10 +6,10 @@ A modern, responsive portfolio website built with Next.js, React, and Tailwind C
 
 - Responsive design for all device sizes
 - Dark/light mode toggle
-- Interactive UI with animations using Framer Motion
+- Subtle motion with reduced-motion support
 - Portfolio showcase
 - Working contact form
-- Resume/skills section
+- Expandable work history, education, certifications, and skills
 - Fast performance with Next.js
 
 ## Getting Started
@@ -76,6 +76,9 @@ environment variables in `~/stacks/pknsl/.env`, then build and deploy with:
 docker compose -p pknsl -f ~/stacks/pknsl/docker-compose.yml build site
 docker compose -p pknsl -f ~/stacks/pknsl/docker-compose.yml up -d site
 ```
+
+After deploying, purge the `pknsl.com` cache in Cloudflare so visitors do not
+receive cached pages or assets from the previous release.
 
 The required runtime variables are:
    - `RESEND_API_KEY`

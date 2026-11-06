@@ -1,98 +1,87 @@
-"use client";
-import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import Image from "next/image";
 import type { Main } from "@/types";
+import SocialIcon from "./SocialIcon";
 
 interface HeroProps {
 	data: Main;
 }
 
 export default function Hero({ data }: HeroProps) {
-	const [isMounted, setIsMounted] = useState(false);
-
-	useEffect(() => {
-		setIsMounted(true);
-	}, []);
-
-	if (!isMounted) return null;
-
 	return (
-		<section id="home" className="relative h-screen w-full flex items-center">
-			{/* Animated background */}
-			<div className="absolute inset-0 overflow-hidden">
-				<motion.div
-					className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 dark:from-primary/10 dark:to-secondary/10"
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{ duration: 1.5 }}
-				/>
-				<div className="absolute inset-0 bg-[radial-gradient(circle_500px_at_50%_250px,rgba(120,119,198,0.3),transparent)]" />
-			</div>
-
-			<div className="container mx-auto px-4 z-10">
-				<div className="flex flex-col items-center">
-					<motion.div
-						className="text-center"
-						initial={{ opacity: 0, x: -50 }}
-						animate={{ opacity: 1, x: 0 }}
-						transition={{ duration: 0.8, delay: 0.2 }}
-					>
-						<h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary mb-4 leading-relaxed pb-2">
-							{data.name}
-						</h1>
-						<h2 className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-6">
-							{data.description}
-						</h2>
-						<div className="flex justify-center space-x-4">
-							{data.social.map((social, index) => (
-								<motion.a
-									key={index}
-									href={social.url}
-									target="_blank"
-									rel="noopener noreferrer"
-									className="w-12 h-12 rounded-full flex items-center justify-center bg-gray-200 hover:bg-primary hover:text-white transition-all duration-300 dark:bg-gray-800"
-									whileHover={{ y: -5, scale: 1.1 }}
-									aria-label={social.name}
-								>
-									<i className={social.className}></i>
-								</motion.a>
-							))}
-						</div>
-					</motion.div>
+		<section id="home" className="hero" aria-labelledby="hero-title">
+			<div className="shell hero__layout">
+				<div className="hero__copy">
+					<p className="eyebrow hero__eyebrow">
+						<span className="status-dot" aria-hidden="true" />
+						Full-stack developer · Toronto, Canada
+					</p>
+					<h1 id="hero-title" className="hero__title">
+						I make the web feel <em>effortless.</em>
+					</h1>
+					<p className="hero__intro">
+						I&apos;m Ian Pekünsal. I pair front-end sensibility with back-end
+						depth to turn complex ideas into clear, useful digital products.
+					</p>
+					<div className="hero__actions">
+						<a className="button button--primary" href="#work">
+							Explore my work
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+								<path d="M5 12h14M13 6l6 6-6 6" />
+							</svg>
+						</a>
+						<a
+							className="text-link"
+							href={data.resumedownload}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Download résumé
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+								<path d="M7 17 17 7M7 7h10v10" />
+							</svg>
+						</a>
+					</div>
+					<div className="hero__socials">
+						{data.social.map((social) => (
+							<SocialIcon key={social.name} name={social.name} url={social.url} />
+						))}
+						<span>Find me elsewhere</span>
+					</div>
 				</div>
 
-				<motion.div
-					className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-					initial={{ opacity: 0, y: 20 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{
-						duration: 0.8,
-						delay: 1,
-						repeat: Infinity,
-						repeatType: "reverse",
-					}}
-				>
-					<a
-						href="#about"
-						className="text-sm text-gray-600 dark:text-gray-400 flex flex-col items-center"
-					>
-						<span>Scroll Down</span>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							className="h-6 w-6 mt-1"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-						>
-							<path
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								strokeWidth={2}
-								d="M19 14l-7 7m0 0l-7-7m7 7V3"
-							/>
-						</svg>
-					</a>
-				</motion.div>
+				<div className="hero__visual">
+					<Image
+						src="/images/about.png"
+						alt="PKNSL personal brand mark"
+						fill
+						priority
+						sizes="(max-width: 900px) 100vw, 38vw"
+						className="hero__image"
+					/>
+					<div className="hero__visual-top" aria-hidden="true">
+						<span>PKNSL®</span>
+						<span>EST. 2019</span>
+					</div>
+					<div className="hero__visual-caption">
+						<span>Front-end sensibility.</span>
+						<span>Back-end depth.</span>
+					</div>
+				</div>
+			</div>
+
+			<div className="shell hero__meta" aria-label="Professional overview">
+				<div>
+					<span className="hero__meta-label">Currently</span>
+					<strong>Full Stack Developer at Nelson</strong>
+				</div>
+				<div>
+					<span className="hero__meta-label">Expertise</span>
+					<strong>Product, web &amp; cloud</strong>
+				</div>
+				<div>
+					<span className="hero__meta-label">Approach</span>
+					<strong>Curious, collaborative, precise</strong>
+				</div>
 			</div>
 		</section>
 	);
